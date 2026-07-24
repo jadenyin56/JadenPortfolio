@@ -45,5 +45,6 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ```bash
 npm run build
-npm start
 ```
+
+The static production build is generated in `dist/` for deployment.
