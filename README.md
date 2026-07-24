@@ -1,23 +1,24 @@
 # Jaden Yin — Portfolio
 
-A warm, editorial portfolio built around the idea that a career is a collection
-of places, people, and problems worth exploring.
+A cartoon travel adventure for a software developer. Each route is a distinct
+destination while the content stays focused on engineering work and outcomes.
 
 ## Creative direction
 
-The site takes cues from a well-used travel journal rather than a literal
-tourism website: cream paper, ink-blue type, terracotta accents, route lines,
-postcards, passport stamps, and small field-note details. The visual system is
-playful, but the layout and typography stay polished enough for professional
-work.
+The visual language uses chunky ink outlines, illustrated scenery, stickers,
+route lines, playful shadows, and bright destination-specific palettes.
 
 ## Page map
 
-- **Hero / departure board** — a concise introduction and primary calls to action
-- **Selected expeditions** — featured project cards presented as destinations
-- **Travel log** — a compact career timeline
-- **About / field notes** — personal working style, tools, and interests
-- **Contact / next stop** — a clear invitation to collaborate
+- **Tropical arrival** (`/`) — combined biography and contact hub
+  - Personal field notes and interests
+  - Photography journal
+  - Passport-style countries travelled log
+- **Mountain expedition** (`/experience`) — technical career timeline
+- **Night city** (`/projects`) — software case studies and stacks
+- **European old town** (`/side-projects`) — experiments and passion projects
+- **Personal contact sheet** (`/photography`) — photography and visual observations
+- **Passport map** (`/travels`) — countries, memories, and travel notes
 
 ## Content status
 
