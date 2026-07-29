@@ -7,21 +7,29 @@ import {
   Linkedin,
   Mail,
   MapPin,
+  Phone,
   Plane,
   Sparkles,
 } from "lucide-react";
+import Intro from "@/components/Intro";
 import Nav from "@/components/Nav";
 import { Cloud } from "@/components/SceneBits";
 
 export default function Home() {
   return (
     <main className="arrivalPage">
+      <Intro />
       <Nav />
       <Cloud className="cloudOne" />
       <Cloud className="cloudTwo" />
       <div className="tropicalSun" />
       <section className="arrivalHero">
         <div className="arrivalCopy">
+          <div className="nameMark">
+            <span className="nameEn">Jaden Yin</span>
+            <i className="nameDivider" />
+            <span className="nameZh">尹泽华</span>
+          </div>
           <span className="locationPill"><MapPin size={15} /> Toronto · Remote friendly</span>
           <h1>Developer by trade.<br /><em>Explorer</em> by nature.</h1>
           <p className="intro">
@@ -34,7 +42,7 @@ export default function Home() {
             camera after closing my laptop.
           </p>
           <div className="arrivalActions">
-            <a className="cartoonButton coral" href="mailto:hello@jadenyin.com">
+            <a className="cartoonButton coral" href="mailto:jadenyin56@gmail.com">
               <Mail size={18} /> Send a postcard
             </a>
             <a className="plainLink" href="#field-notes">More about me <ArrowDown size={16} /></a>
@@ -90,9 +98,10 @@ export default function Home() {
             <span><Coffee /> Coffee-powered</span>
           </div>
           <div className="contactDock">
-            <a href="mailto:hello@jadenyin.com"><Mail /> hello@jadenyin.com</a>
-            <a href="#"><Github /> GitHub ↗</a>
-            <a href="#"><Linkedin /> LinkedIn ↗</a>
+            <a href="mailto:jadenyin56@gmail.com"><Mail /> jadenyin56@gmail.com</a>
+            <a href="tel:+16474012078"><Phone /> 647-401-2078</a>
+            <a href="https://github.com/jadenyin56" target="_blank" rel="noopener noreferrer"><Github /> GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/jadenyin56/" target="_blank" rel="noopener noreferrer"><Linkedin /> LinkedIn ↗</a>
           </div>
         </div>
       </section>

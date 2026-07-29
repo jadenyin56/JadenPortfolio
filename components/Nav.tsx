@@ -5,11 +5,11 @@ import Link from "next/link";
 import { useState } from "react";
 
 const links = [
-  ["/experience", "Experience"],
-  ["/projects", "Projects"],
-  ["/side-projects", "Side Projects"],
-  ["/photography", "Photography"],
-  ["/travels", "Travels"],
+  ["/experience", "The Climb"],
+  ["/projects", "Night Market"],
+  ["/side-projects", "Side Quests"],
+  ["/photography", "Contact Sheet"],
+  ["/travels", "Passport"],
 ];
 
 export default function Nav({ light = false }: { light?: boolean }) {
@@ -20,6 +20,8 @@ export default function Nav({ light = false }: { light?: boolean }) {
       <Link className="brand" href="/">
         <span className="brandBubble"><Plane size={17} /></span>
         <span>Jaden.dev</span>
+        <i className="brandDivider" />
+        <span className="brandZh">尹泽华</span>
       </Link>
       <div className={`navLinks ${open ? "open" : ""}`}>
         {links.map(([href, label]) => (
@@ -27,7 +29,7 @@ export default function Nav({ light = false }: { light?: boolean }) {
             {label}
           </Link>
         ))}
-        <Link className="resumePill" href="/side-projects" onClick={() => setOpen(false)}>Side Projects ↗</Link>
+        <Link className="resumePill" href="/side-projects" onClick={() => setOpen(false)}>Side Quests ↗</Link>
       </div>
       <button
         className="menuButton"

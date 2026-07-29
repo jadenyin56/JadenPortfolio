@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, Code2, Flag, Route } from "lucide-react";
+import { BriefcaseBusiness, Code2, Flag } from "lucide-react";
 import Nav from "@/components/Nav";
 import { Cloud } from "@/components/SceneBits";
 
@@ -18,19 +18,27 @@ export default function Experience() {
         <h1>The climb<br /><em>so far.</em></h1>
         <p>Every role added new altitude: stronger systems, sharper craft, and better ways to build together.</p>
       </header>
-      <div className="mountainRange realisticRange" aria-hidden="true">
-        <span className="sunGlow" />
-        <span className="atmosphere" />
-        <i className="peak peakOne" /><i className="peak peakTwo" /><i className="peak peakThree" />
-        <i className="snow snowOne" /><i className="snow snowTwo" /><i className="snow snowThree" />
-        <span className="pine p1">▲</span><span className="pine p2">▲</span><span className="pine p3">▲</span>
-        <span className="pine p4">▲</span><span className="pine p5">▲</span>
-        <span className="mountainCabin"><i /><b /><em /></span>
-        <span className="mountainBirds">⌁　⌁</span>
-        <span className="valleyFog fogOne" /><span className="valleyFog fogTwo" />
-        <span className="tarn"><b /></span>
-        <span className="trailPath" />
-        <span className="trailLine"><Route /></span>
+      <div className="vancouverScene" aria-hidden="true">
+        <div className="sunsetSky" />
+        <div className="sunOrb" />
+        <span className="duskCloud cloudA" /><span className="duskCloud cloudB" />
+        <span className="duskBirds">⌁　⌁　⌁</span>
+        <i className="ridge ridgeFar" />
+        <i className="ridge ridgeMid" />
+        <i className="ridge ridgeNear"><span className="treeline" /></i>
+        <div className="fjordWater">
+          <span className="sunGlimmer" />
+          <span className="ripple r1" /><span className="ripple r2" /><span className="ripple r3" />
+        </div>
+        <div className="lakesideCabin">
+          <span className="cabinChimney"><i /></span>
+          <div className="cabinRoofReal" />
+          <div className="cabinWalls">
+            <span className="cabinWindowGlow" />
+            <span className="cabinDoorReal" />
+          </div>
+          <span className="cabinReflection" />
+        </div>
       </div>
       <section className="climbLog">
         {roles.map(([date, role, company, copy, altitude], index) => (

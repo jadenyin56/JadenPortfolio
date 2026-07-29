@@ -9,6 +9,7 @@
   --green: #5ea784;
   --outline: 3px solid var(--navy);
   --shadow: 6px 6px 0 var(--navy);
+  --font-cjk: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -27,6 +28,8 @@ button { font: inherit; }
   align-items: center; background: var(--yellow); border: 2px solid var(--navy);
   border-radius: 50%; display: flex; height: 38px; justify-content: center; transform: rotate(-9deg); width: 38px;
 }
+.brandDivider { background: currentColor; display: inline-block; height: 16px; opacity: .3; width: 2px; }
+.brandZh { font-family: var(--font-cjk); font-size: 15px; font-weight: 700; letter-spacing: .04em; opacity: .85; }
 .navLinks { align-items: center; display: flex; font-size: 13px; font-weight: 700; gap: 30px; }
 .navLinks > a { transition: transform .2s; }
 .navLinks > a:hover { transform: translateY(-2px) rotate(-1deg); }
@@ -40,9 +43,10 @@ button { font: inherit; }
   display: inline-block; font-size: 10px; font-weight: 900; letter-spacing: .17em;
   margin-bottom: 20px; text-transform: uppercase;
 }
-h1, h2 { font-family: var(--font-display), Georgia, serif; letter-spacing: -.045em; }
-h1 { font-size: clamp(58px, 7.5vw, 108px); font-weight: 600; line-height: .92; margin: 0; }
-h1 em { color: var(--coral); font-weight: 600; position: relative; }
+h1, h2 { font-family: var(--font-display), Impact, sans-serif; letter-spacing: -.005em; text-transform: uppercase; }
+h1 { font-size: clamp(58px, 7.5vw, 108px); font-weight: 400; line-height: .92; margin: 0; }
+h1 em, h2 em { font-style: normal; }
+h1 em { color: var(--coral); font-weight: 400; position: relative; }
 h1 em::after {
   background: var(--yellow); bottom: 3px; content: ""; height: 10px; left: 0;
   position: absolute; transform: rotate(-1deg); width: 100%; z-index: -1;
@@ -128,15 +132,12 @@ h1 em::after {
 .journeyStrip a:hover { border-color: var(--coral); }
 
 /* Mountain projects */
-.mountainPage { background: linear-gradient(180deg, #d9f0f2 0, #c6e7ee 45%, #b9e2e1 100%); min-height: 100vh; overflow: hidden; padding: 130px 6vw 80px; position: relative; }
+.mountainPage {
+  background: linear-gradient(180deg, #241b46 0%, #55345f 12%, #99496a 22%, #d9705d 32%, #f2a35f 42%, #f8d08e 52%, #fdeac0 62%, #fdf3d9 100%);
+  min-height: 100vh; overflow: hidden; padding: 130px 6vw 80px; position: relative;
+}
 .destinationHead { max-width: 850px; position: relative; z-index: 5; }
 .destinationHead p, .cityHead p { font-size: 17px; line-height: 1.6; max-width: 560px; }
-.mountainRange { height: 490px; position: absolute; right: -4%; top: 80px; width: 58%; }
-.peak { border: var(--outline); bottom: 0; clip-path: polygon(50% 0, 100% 100%, 0 100%); position: absolute; }
-.peakOne { background: #638e82; height: 360px; left: 0; width: 470px; }
-.peakTwo { background: #416f69; height: 460px; right: -30px; width: 580px; }
-.peakThree { background: #83aa99; height: 260px; right: 46%; width: 330px; }
-.trailLine { bottom: 85px; color: var(--yellow); position: absolute; right: 80px; transform: rotate(-22deg); z-index: 2; }
 .projectGrid { display: grid; gap: 25px; grid-template-columns: repeat(3,1fr); margin-top: 180px; position: relative; z-index: 6; }
 .devProject { background: var(--paper); border: var(--outline); border-radius: 18px; box-shadow: var(--shadow); padding: 25px; transition: .2s; }
 .devProject:hover { box-shadow: 10px 10px 0 var(--navy); transform: translateY(-6px) rotate(-.4deg); }
@@ -238,7 +239,7 @@ h1 em::after {
   .homePage::after { display: none; }
   .projectGrid { grid-template-columns: 1fr; margin-top: 250px; }
   .devProject p { min-height: auto; }
-  .mountainRange { top: 420px; width: 100%; }
+  .vancouverScene { top: 420px; width: 100%; }
   .townPortrait { display: none; }
   .role { grid-template-columns: 45px 100px 1fr; }
   .role p { grid-column: 3; }
@@ -249,6 +250,7 @@ h1 em::after {
 @media (max-width: 650px) {
   .nav { height: 68px; padding: 0 20px; }
   .menuButton { display: block; }
+  .brandDivider, .brandZh { display: none; }
   .navLinks {
     align-items: stretch; background: var(--paper); border: var(--outline); border-radius: 12px;
     box-shadow: var(--shadow); color: var(--navy); flex-direction: column; gap: 0; opacity: 0;
@@ -265,7 +267,7 @@ h1 em::after {
   .islandScene { height: 430px; transform: scale(.85); transform-origin: top center; }
   .destinationHead { padding-right: 0; }
   .mountainPage { padding: 110px 20px 60px; }
-  .mountainRange { top: 330px; }
+  .vancouverScene { top: 330px; }
   .projectGrid { margin-top: 250px; }
   .townIntro { padding: 115px 20px 30px; }
   .townStreet { transform: scale(.75); transform-origin: bottom center; width: 133%; margin-left: -16.5%; }
@@ -314,6 +316,10 @@ h1 em::after {
   min-height: 100vh; padding: 120px 7vw 90px; position: relative; z-index: 4;
 }
 .arrivalCopy { max-width: 700px; }
+.nameMark { align-items: center; display: flex; gap: 12px; margin-bottom: 18px; }
+.nameEn { font-family: var(--font-display); font-size: 15px; letter-spacing: .08em; text-transform: uppercase; }
+.nameDivider { background: var(--coral); display: inline-block; height: 3px; width: 22px; }
+.nameZh { font-family: var(--font-cjk); font-size: 17px; font-weight: 700; letter-spacing: .06em; }
 .arrivalCopy .intro { font-family: var(--font-display); font-size: 23px; font-weight: 600; line-height: 1.45; margin: 28px 0 14px; }
 .arrivalCopy > p:not(.intro) { font-size: 15px; line-height: 1.7; max-width: 600px; }
 .arrivalActions { align-items: center; display: flex; gap: 27px; margin-top: 30px; }
@@ -400,6 +406,113 @@ h1 em::after {
 .contactDock a { align-items: center; display: flex; font-size: 11px; font-weight: 900; gap: 7px; }
 .contactDock svg { height: 17px; width: 17px; }
 .arrivalFooter { background: var(--navy); color: white; font-size: 9px; font-weight: 900; letter-spacing: .14em; padding: 24px; text-align: center; text-transform: uppercase; }
+
+/* Departure intro */
+.introScreen {
+  align-items: center; background: linear-gradient(180deg,#bfe6f2 0%,#8fd0e6 55%,#eef7e8 100%);
+  display: flex; flex-direction: column; inset: 0; justify-content: center;
+  overflow: hidden; position: fixed; z-index: 999;
+}
+.introScreen::before {
+  background-image: radial-gradient(rgba(255,255,255,.4) 1px, transparent 1px); background-size: 8px 8px;
+  content: ""; inset: 0; opacity: .35; pointer-events: none; position: absolute;
+}
+.introSkyline { align-items: flex-end; bottom: 0; display: flex; height: 20vh; left: 0; position: absolute; right: 0; z-index: 1; }
+.introSkyline i { background: linear-gradient(180deg,#2b3f52,#1c2c3b); display: block; flex: 1; margin: 0 2px; }
+.introSkyline i:nth-child(1) { height: 45%; }.introSkyline i:nth-child(2) { height: 68%; }
+.introSkyline i:nth-child(3) { height: 38%; }.introSkyline i:nth-child(4) { height: 82%; }
+.introSkyline i:nth-child(5) { height: 55%; }.introSkyline i:nth-child(6) { height: 70%; }
+.introSkyline i:nth-child(7) { height: 42%; }
+.introTower { bottom: 0; height: 32vh; left: 12%; position: absolute; width: 22px; z-index: 2; }
+.introTower::before {
+  background: linear-gradient(100deg,#8b99a3 0 50%,#5c6a74 51%); clip-path: polygon(38% 0,62% 0,100% 100%,0 100%);
+  content: ""; height: 100%; position: absolute; width: 100%;
+}
+.introTower::after {
+  background: #5c6a74; content: ""; height: 60px; left: 50%; position: absolute; top: -60px; transform: translateX(-50%); width: 3px;
+}
+.introTower span {
+  background: linear-gradient(100deg,#9aa7b0 0 50%,#69767f 51%); border-radius: 7px; height: 26px; left: 50%;
+  position: absolute; top: 30%; transform: translateX(-50%); width: 56px; z-index: 2;
+}
+.introPlane {
+  bottom: 30vh; color: var(--navy); left: 8%; position: absolute; transform: rotate(-4deg); z-index: 3;
+}
+.introPlane svg { filter: drop-shadow(4px 6px 0 rgba(23,54,74,.25)); height: 128px; stroke-width: 1.4; width: 128px; }
+.introSkip {
+  bottom: 26px; color: var(--navy); cursor: pointer; font-size: 10px; font-weight: 800; letter-spacing: .1em;
+  opacity: .55; position: absolute; right: 30px; text-transform: uppercase; z-index: 8;
+}
+.introSkip:hover { opacity: .9; }
+
+.boardingPass {
+  display: flex; position: relative; transform: rotate(-1.5deg); z-index: 6;
+}
+.boardingPass::before, .boardingPass::after {
+  background: #8fd0e6; border: 2px solid var(--navy); border-radius: 50%; content: ""; height: 20px;
+  left: 328px; position: absolute; width: 20px; z-index: 3;
+}
+.boardingPass::before { top: -10px; }
+.boardingPass::after { bottom: -10px; }
+.passMain {
+  background: var(--paper); border: var(--outline); border-radius: 16px 0 0 16px; border-right: none;
+  box-shadow: var(--shadow); padding: 26px 30px; width: 340px;
+}
+.passHead { align-items: center; display: flex; justify-content: space-between; margin-bottom: 18px; }
+.passAirline { align-items: center; display: flex; font-family: var(--font-display); font-size: 17px; font-weight: 800; gap: 8px; }
+.passClass { font-size: 9px; font-weight: 800; letter-spacing: .12em; opacity: .6; text-transform: uppercase; }
+.passRoute { align-items: center; display: flex; justify-content: space-between; margin: 10px 0 20px; }
+.passCity { display: flex; flex-direction: column; }
+.passCity b { font-family: var(--font-display); font-size: 34px; line-height: 1; }
+.passCity span { font-size: 10px; font-weight: 700; letter-spacing: .06em; margin-top: 4px; }
+.passCityEnd { text-align: right; }
+.passRouteLine { align-items: center; color: var(--coral); display: flex; flex: 1; gap: 4px; justify-content: center; padding: 0 12px; }
+.passRouteLine i { background: repeating-linear-gradient(90deg, var(--coral) 0 5px, transparent 5px 10px); display: block; height: 2px; width: 28px; }
+.passDetails { border-top: 2px dashed rgba(23,54,74,.3); display: grid; gap: 10px; grid-template-columns: repeat(4,1fr); padding-top: 16px; }
+.passDetails small { display: block; font-size: 8px; font-weight: 800; letter-spacing: .1em; opacity: .55; text-transform: uppercase; }
+.passDetails span { display: block; font-family: var(--font-display); font-size: 15px; margin-top: 3px; }
+.passStub {
+  align-items: center; background: var(--navy); border: var(--outline); border-left: 3px dashed rgba(255,255,255,.45);
+  border-radius: 0 16px 16px 0; box-shadow: var(--shadow); color: white; display: flex; flex-direction: column;
+  gap: 16px; justify-content: center; padding: 26px 20px; width: 150px;
+}
+.passFlightNo { font-family: var(--font-display); font-size: 15px; font-weight: 800; letter-spacing: .04em; }
+.passBarcode {
+  background-image: repeating-linear-gradient(90deg, white 0 2px, transparent 2px 3px, white 3px 4px, transparent 4px 8px);
+  height: 32px; opacity: .9; width: 100%;
+}
+.passBoardBtn {
+  background: var(--coral); border: 2px solid white; border-radius: 10px; color: white; cursor: pointer;
+  font-family: inherit; font-size: 12px; font-weight: 900; padding: 11px 14px; transition: transform .15s, box-shadow .15s;
+  box-shadow: 3px 3px 0 rgba(0,0,0,.25);
+}
+.passBoardBtn:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 rgba(0,0,0,.25); }
+.passBoardBtn:active { box-shadow: 1px 1px 0 rgba(0,0,0,.25); transform: translate(2px,2px); }
+
+.introTakeoff .introPlane { animation: introFly 1.3s cubic-bezier(.4,0,.2,1) forwards; z-index: 7; }
+.introTakeoff .boardingPass { animation: passAway .5s ease forwards; }
+.introExit { animation: introDescend .8s cubic-bezier(.6,0,.4,1) forwards; pointer-events: none; }
+@keyframes introFly {
+  0% { transform: translate(0,0) rotate(-4deg) scale(1); }
+  30% { transform: translate(10vw,-6vh) rotate(-10deg) scale(1.12); }
+  100% { transform: translate(90vw,-70vh) rotate(-24deg) scale(.4); opacity: 0; }
+}
+@keyframes passAway {
+  to { opacity: 0; transform: translateY(24px) rotate(-1.5deg) scale(.96); }
+}
+@keyframes introDescend {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(6%) scale(1.03); }
+}
+@media (max-width: 650px) {
+  .introTower { left: 8%; }
+  .introPlane { left: 6%; }
+  .introPlane svg { height: 84px; width: 84px; }
+  .boardingPass { transform: scale(.72) rotate(-1.5deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .introScreen { display: none; }
+}
 
 .photographySection {
   align-items: center; background: #193449; color: #fff7df; display: grid; gap: 7vw;
@@ -626,26 +739,63 @@ h1 em::after {
   .navLinks { font-size: 11px; gap: 17px; }
 }
 
-.realisticRange { filter: drop-shadow(0 22px 18px rgba(23,54,74,.18)); }
-.realisticRange .peak { background-blend-mode: multiply; }
-.realisticRange .peakOne { background: linear-gradient(145deg,#789e91 0 48%,#52786f 49%); }
-.realisticRange .peakTwo { background: linear-gradient(135deg,#608a80 0 47%,#325f5a 48%); }
-.realisticRange .peakThree { background: linear-gradient(150deg,#9ab6a4 0 50%,#668f7d 51%); }
-.sunGlow {
-  background: radial-gradient(circle, rgba(255,238,180,.85), rgba(255,238,180,.15) 55%, transparent 70%);
-  height: 220px; position: absolute; right: 8%; top: -60px; width: 220px; z-index: 1;
+/* Vancouver sunset mountain scene */
+.vancouverScene {
+  border-radius: 22px; box-shadow: 0 34px 60px rgba(30,12,30,.4), 0 0 0 1px rgba(255,255,255,.1) inset;
+  height: 500px; overflow: hidden; position: absolute; right: -3%; top: 65px; width: 60%; z-index: 3;
 }
-.atmosphere {
-  background: linear-gradient(180deg, rgba(217,240,242,.55) 0, rgba(217,240,242,0) 38%);
-  inset: 0; position: absolute; z-index: 2;
+.sunsetSky {
+  background: linear-gradient(180deg, #241b46 0%, #55345f 22%, #99496a 40%, #d9705d 58%, #f2a35f 74%, #f8d08e 90%, #fdeac0 100%);
+  inset: 0; position: absolute;
 }
-.snow { background: linear-gradient(160deg,#fffdf5 0 55%,#dfe6de 56%); clip-path: polygon(50% 0, 74% 42%, 64% 36%, 57% 55%, 45% 37%, 34% 55%, 24% 43%); position: absolute; z-index: 3; }
-.snowOne { height: 120px; right: 140px; top: 28px; width: 150px; }.snowTwo { height: 90px; left: 152px; top: 104px; width: 120px; }
-.snowThree { height: 70px; right: 30%; top: 128px; width: 95px; }
-.pine { color: #244f48; filter: drop-shadow(1px 2px 0 rgba(23,54,74,.2)); font-size: 43px; position: absolute; z-index: 4; }
-.pine::after { background: rgba(23,54,74,.18); border-radius: 50%; bottom: -6px; content: ""; height: 5px; left: 50%; position: absolute; transform: translateX(-50%); width: 26px; }
-.p1 { bottom: 28px; right: 25%; }.p2 { bottom: 6px; right: 35%; font-size: 55px; }.p3 { bottom: 18px; left: 20%; }
-.p4 { bottom: 14px; color: #2c5c53; font-size: 34px; left: 30%; }.p5 { bottom: 2px; color: #1e463f; font-size: 47px; right: 12%; }
+.sunOrb {
+  background: radial-gradient(circle, #fff6dd 0%, #ffd487 40%, #f4a35e 70%, rgba(244,163,94,0) 72%);
+  border-radius: 50%; height: 190px; left: 57%; position: absolute; top: 44%; transform: translate(-50%,-50%); width: 190px; z-index: 1;
+}
+.sunOrb::after { background: radial-gradient(circle, rgba(255,220,150,.5), transparent 70%); content: ""; inset: -55px; position: absolute; }
+.duskCloud { background: rgba(255,255,255,.4); border-radius: 40px; filter: blur(1.5px); height: 16px; position: absolute; z-index: 1; }
+.cloudA { left: 8%; top: 16%; width: 95px; }
+.cloudB { opacity: .6; right: 10%; top: 28%; width: 65px; }
+.duskBirds { color: rgba(25,15,30,.55); font-family: serif; font-size: 19px; left: 20%; position: absolute; top: 14%; transform: rotate(-5deg); z-index: 4; }
+.ridge { bottom: 0; left: -2%; position: absolute; width: 104%; }
+.ridgeFar {
+  background: #8a76a0; clip-path: polygon(0% 62%,6% 50%,13% 58%,20% 38%,28% 52%,35% 30%,44% 46%,52% 24%,60% 42%,68% 20%,76% 40%,84% 28%,92% 44%,100% 32%,100% 100%,0% 100%);
+  filter: blur(1.5px); height: 230px; opacity: .55; z-index: 1;
+}
+.ridgeMid {
+  background: #5c4d72; clip-path: polygon(0% 74%,8% 58%,16% 68%,24% 44%,32% 60%,40% 36%,48% 55%,58% 30%,66% 52%,74% 34%,82% 54%,90% 40%,100% 58%,100% 100%,0% 100%);
+  height: 270px; opacity: .82; z-index: 2;
+}
+.ridgeNear {
+  background: #2c2440; clip-path: polygon(0% 84%,7% 66%,14% 78%,22% 54%,30% 72%,38% 48%,46% 68%,55% 42%,63% 64%,71% 46%,79% 66%,88% 50%,100% 70%,100% 100%,0% 100%);
+  height: 320px; z-index: 3;
+}
+.treeline {
+  background-image: linear-gradient(135deg,transparent 50%,#1b1729 50%), linear-gradient(225deg,transparent 50%,#1b1729 50%);
+  background-position: bottom; background-repeat: repeat-x; background-size: 20px 32px;
+  bottom: 0; display: block; height: 32px; left: 0; position: absolute; right: 0;
+}
+.fjordWater {
+  background: linear-gradient(180deg,#3c3050 0%,#744860 28%,#a85f61 52%,#cf8969 76%,#eeb47c 100%);
+  bottom: 0; height: 105px; left: 0; overflow: hidden; position: absolute; right: 0; z-index: 4;
+}
+.sunGlimmer { background: linear-gradient(180deg, rgba(255,225,175,.85), rgba(255,225,175,0)); filter: blur(1px); height: 100%; left: 55%; position: absolute; width: 55px; }
+.ripple { background: rgba(255,236,208,.4); border-radius: 2px; height: 2px; position: absolute; }
+.r1 { left: 28%; top: 22px; width: 85px; }.r2 { left: 46%; top: 52px; width: 125px; }.r3 { left: 18%; top: 78px; width: 65px; }
+.lakesideCabin { bottom: 82px; left: 13%; position: absolute; z-index: 5; }
+.cabinChimney { background: #3a2717; height: 16px; left: 6px; position: absolute; top: -38px; width: 8px; }
+.cabinChimney i { animation: smokeDrift 3.6s ease-in-out infinite; background: rgba(255,255,255,.55); border-radius: 50%; display: block; filter: blur(2px); height: 11px; left: -2px; position: absolute; top: -13px; width: 11px; }
+.cabinRoofReal { background: linear-gradient(160deg,#5c3b2e,#3a2717); clip-path: polygon(50% 0,100% 100%,0 100%); height: 26px; left: -8px; position: absolute; top: -24px; width: 72px; }
+.cabinWalls { background: linear-gradient(100deg,#4a3324 0 55%,#3a2717 56%); height: 40px; position: relative; width: 56px; }
+.cabinWindowGlow {
+  background: radial-gradient(circle,#ffefc4,#f7b955 70%); box-shadow: 0 0 16px 5px rgba(255,201,110,.85);
+  height: 12px; left: 10px; position: absolute; top: 10px; width: 12px;
+}
+.cabinDoorReal { background: #241708; bottom: 0; height: 22px; left: 32px; position: absolute; width: 14px; }
+.cabinReflection {
+  background: linear-gradient(180deg, rgba(74,51,36,.45), transparent); bottom: -32px; filter: blur(2px);
+  height: 32px; left: -8px; opacity: .55; position: absolute; transform: scaleY(-1); width: 72px;
+}
 .experienceMountain .projectGrid { margin-top: 80px; }
 .climbLog { background: rgba(255,250,240,.94); border: var(--outline); border-radius: 18px; box-shadow: var(--shadow); margin: 190px auto 0; max-width: 1150px; padding: 0 28px; position: relative; z-index: 6; }
 .climbStop { align-items: center; border-bottom: 2px dashed #b9c4ba; display: grid; gap: 22px; grid-template-columns: 55px 120px 1fr 1.35fr; min-height: 130px; padding: 20px 0; }
@@ -789,7 +939,7 @@ main { animation: pageArrive .65s cubic-bezier(.2,.72,.28,1) both; }
 .arrivalCopy, .destinationHead, .cityHead, .sideHead, .photoPageHead, .travelHead {
   animation: contentRise .75s cubic-bezier(.2,.72,.28,1) .08s both;
 }
-.airportScene, .mountainRange, .citySkyline, .shopRow, .contactSheet, .travelMap {
+.airportScene, .vancouverScene, .citySkyline, .shopRow, .contactSheet, .travelMap {
   animation: sceneReveal .9s cubic-bezier(.2,.72,.28,1) .18s both;
 }
 .cloudOne { animation: cloudDriftOne 9s ease-in-out infinite; }
@@ -797,9 +947,13 @@ main { animation: pageArrive .65s cubic-bezier(.2,.72,.28,1) both; }
 .cloudThree { animation: cloudDriftThree 8s ease-in-out infinite; }
 .planeReal { animation: planeFlyBy 11s cubic-bezier(.44,.05,.45,.95) 1s infinite; }
 .terminalGlass span { animation: arrivalsBlink 4s steps(1,end) infinite; }
-.detailedPalm b, .detailedPalm strong, .detailedPalm em {
-  animation: palmSway 4.5s ease-in-out infinite; transform-origin: bottom center;
+.detailedPalm b, .detailedPalm strong, .detailedPalm em, .detailedPalm::after {
+  transform-origin: bottom center;
 }
+.detailedPalm b { animation: palmSway 4.5s ease-in-out infinite; }
+.detailedPalm strong { animation: palmSway 4.1s ease-in-out -.6s infinite; }
+.detailedPalm em { animation: palmSway 4.8s ease-in-out -1.4s infinite; }
+.detailedPalm::after { animation: palmSway 4.3s ease-in-out -2.1s infinite; }
 .polaroidProfile:hover { animation: photoWiggle .55s ease-in-out; }
 .climbStop:hover .climbMarker { animation: markerPop .45s ease; }
 .nightProject, .projectShop {
@@ -973,21 +1127,6 @@ body::after {
   border: 2px solid var(--navy); bottom: -13px; content: ""; height: 12px; left: -3px; position: absolute; right: -3px;
 }
 
-.mountainCabin { background: linear-gradient(100deg,#a06f4f 0 50%,#7c5138 51%); border: 2px solid var(--navy); bottom: 43px; height: 42px; position: absolute; right: 43%; width: 58px; z-index: 5; }
-.mountainCabin::before { background: #79432f; border: 2px solid var(--navy); clip-path: polygon(50% 0,100% 100%,0 100%); content: ""; height: 34px; left: -8px; position: absolute; top: -28px; width: 72px; }
-.mountainCabin i { background: #f6c95b; border: 2px solid var(--navy); height: 16px; left: 8px; position: absolute; top: 10px; width: 15px; }
-.mountainCabin b { background: #3c554e; bottom: 0; height: 27px; position: absolute; right: 7px; width: 14px; }
-.mountainCabin em { background: var(--navy); height: 12px; left: 6px; position: absolute; top: -42px; width: 4px; }
-.mountainCabin em::after { animation: smokeDrift 3.5s ease-in-out infinite; background: rgba(255,255,255,.55); border-radius: 50%; content: ""; filter: blur(2px); height: 10px; left: -3px; position: absolute; top: -12px; width: 10px; }
-.mountainBirds { font-family: serif; font-size: 24px; position: absolute; right: 28%; top: 36%; transform: rotate(-8deg); z-index: 6; }
-.valleyFog { background: rgba(240,245,235,.55); border-radius: 50%; filter: blur(8px); height: 45px; position: absolute; z-index: 4; }
-.fogOne { bottom: 40px; left: 5%; width: 340px; }.fogTwo { bottom: 75px; right: 0; width: 280px; }
-.tarn { background: linear-gradient(180deg,#7fb6c4 0,#5c96a8 100%); border: 2px solid var(--navy); border-radius: 50%; bottom: 6px; height: 26px; left: 12%; position: absolute; transform: scaleX(2.4); width: 60px; z-index: 3; }
-.tarn b { background: linear-gradient(180deg,rgba(255,255,255,.5),transparent); height: 8px; left: 10px; position: absolute; top: 4px; width: 40px; }
-.trailPath {
-  background-image: repeating-linear-gradient(-62deg, var(--coral) 0 6px, transparent 6px 13px);
-  bottom: 30px; height: 220px; left: 36%; opacity: .8; position: absolute; transform: rotate(4deg); width: 5px; z-index: 5;
-}
 .climbLog::before {
   border-left: 2px dashed rgba(73,96,92,.35); bottom: 65px; content: ""; left: 49px;
   position: absolute; top: 65px;
@@ -1030,6 +1169,7 @@ body::after {
   content: ""; height: 6px; left: 1px; opacity: .6; position: absolute; width: 6px;
 }
 .pinOne { left: 15%; top: 34%; }.pinTwo { left: 46%; top: 42%; }.pinThree { right: 12%; top: 30%; }
+.pinTwo::after { animation-delay: -.8s; }.pinThree::after { animation-delay: -1.6s; }
 .mapCoordinates { bottom: 14px; color: rgba(23,54,74,.65); font-family: monospace; font-size: 7px; left: 16px; line-height: 1.5; position: absolute; z-index: 4; }
 .mapPaper::after {
   background: repeating-linear-gradient(0deg,transparent 0 23px,rgba(65,93,78,.1) 23px 24px);
@@ -1114,8 +1254,7 @@ body::after {
 }
 @media (max-width: 650px) {
   .airportPeople, .runwayMarker, .luggageCart, .sailboat, .skyBirds, .passportStamp { display: none; }
-  .mountainCabin { right: 25%; }
-  .tarn, .trailPath, .sunGlow, .p4, .p5 { display: none; }
+  .duskBirds, .duskCloud, .ripple { display: none; }
   .pearlTower { opacity: .4; right: -12%; }
   .skyBridge, .maglev, .signFuture, .powerLine, .droneStreak { display: none; }
   .signCode { left: auto; right: 8px; top: 30%; }
