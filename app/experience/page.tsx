@@ -1,5 +1,6 @@
 import { BriefcaseBusiness, Code2, Flag } from "lucide-react";
 import Nav from "@/components/Nav";
+import Reveal from "@/components/Reveal";
 import { Cloud } from "@/components/SceneBits";
 
 const roles = [
@@ -42,12 +43,12 @@ export default function Experience() {
       </div>
       <section className="climbLog">
         {roles.map(([date, role, company, copy, altitude], index) => (
-          <article className="climbStop" key={date}>
+          <Reveal className="climbStop" key={date} delay={index * 110}>
             <div className="climbMarker">{index === 0 ? <Flag /> : `0${index + 1}`}</div>
             <div className="climbDate">{date}<small>{altitude}</small></div>
             <div><span>{company}</span><h2>{role}</h2></div>
             <p>{copy}</p>
-          </article>
+          </Reveal>
         ))}
       </section>
       <div className="pageTrail"><BriefcaseBusiness size={17} /> Experience earned one switchback at a time.</div>

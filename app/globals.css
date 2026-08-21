@@ -19,6 +19,19 @@ a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 ::selection { background: var(--yellow); color: var(--navy); }
 
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: var(--paper); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--coral), var(--navy)); border: 2px solid var(--paper); border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(var(--navy), var(--coral)); }
+
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);
+}
+.reveal.shown { opacity: 1; transform: translateY(0); }
+
 .nav {
   align-items: center; display: flex; height: 78px; justify-content: space-between;
   left: 0; padding: 0 5vw; position: absolute; right: 0; top: 0; z-index: 50;
@@ -54,9 +67,15 @@ h1 em::after {
 
 .cartoonButton {
   align-items: center; border: var(--outline); border-radius: 14px; box-shadow: var(--shadow);
-  display: inline-flex; font-size: 14px; font-weight: 900; gap: 10px; padding: 15px 20px;
-  transition: transform .15s, box-shadow .15s;
+  display: inline-flex; font-size: 14px; font-weight: 900; gap: 10px; overflow: hidden; padding: 15px 20px;
+  position: relative; transition: transform .15s, box-shadow .15s;
 }
+.cartoonButton::before {
+  background: linear-gradient(105deg, transparent, rgba(255,255,255,.6), transparent);
+  content: ""; height: 100%; left: -65%; pointer-events: none; position: absolute; top: 0;
+  transform: skewX(-18deg); transition: left .6s cubic-bezier(.22,1,.36,1); width: 40%;
+}
+.cartoonButton:hover::before { left: 130%; }
 .cartoonButton:hover { box-shadow: 2px 2px 0 var(--navy); transform: translate(4px, 4px); }
 .cartoonButton.coral { background: var(--coral); color: white; }
 .cartoonButton.navy { background: var(--navy); color: white; }
@@ -138,6 +157,10 @@ h1 em::after {
 }
 .destinationHead { max-width: 850px; position: relative; z-index: 5; }
 .destinationHead p, .cityHead p { font-size: 17px; line-height: 1.6; max-width: 560px; }
+.destinationHead .chapter { color: #ffe9c6; text-shadow: 0 2px 16px rgba(0,0,0,.35); }
+.destinationHead h1 { color: #fff8ec; text-shadow: 0 4px 34px rgba(217,112,93,.5), 0 2px 12px rgba(0,0,0,.4); }
+.destinationHead h1 em::after { box-shadow: 0 0 22px rgba(249,199,79,.6); }
+.destinationHead p { color: #f4e3d6; text-shadow: 0 2px 14px rgba(0,0,0,.3); }
 .projectGrid { display: grid; gap: 25px; grid-template-columns: repeat(3,1fr); margin-top: 180px; position: relative; z-index: 6; }
 .devProject { background: var(--paper); border: var(--outline); border-radius: 18px; box-shadow: var(--shadow); padding: 25px; transition: .2s; }
 .devProject:hover { box-shadow: 10px 10px 0 var(--navy); transform: translateY(-6px) rotate(-.4deg); }
@@ -317,9 +340,18 @@ h1 em::after {
 }
 .arrivalCopy { max-width: 700px; }
 .nameMark { align-items: center; display: flex; gap: 12px; margin-bottom: 18px; }
-.nameEn { font-family: var(--font-display); font-size: 15px; letter-spacing: .08em; text-transform: uppercase; }
+.nameEn {
+  background: linear-gradient(120deg, var(--coral) 0%, var(--yellow) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(23,54,74,.25));
+  font-family: var(--font-display); font-size: 15px; letter-spacing: .08em; text-transform: uppercase;
+}
 .nameDivider { background: var(--coral); display: inline-block; height: 3px; width: 22px; }
-.nameZh { font-family: var(--font-cjk); font-size: 17px; font-weight: 700; letter-spacing: .06em; }
+.nameZh {
+  background: linear-gradient(120deg, var(--navy) 0%, var(--coral) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  font-family: var(--font-cjk); font-size: 17px; font-weight: 700; letter-spacing: .06em;
+}
 .arrivalCopy .intro { font-family: var(--font-display); font-size: 23px; font-weight: 600; line-height: 1.45; margin: 28px 0 14px; }
 .arrivalCopy > p:not(.intro) { font-size: 15px; line-height: 1.7; max-width: 600px; }
 .arrivalActions { align-items: center; display: flex; gap: 27px; margin-top: 30px; }
@@ -393,6 +425,8 @@ h1 em::after {
   background-size: 28px 28px; content: ""; inset: 0; pointer-events: none; position: absolute;
 }
 .polaroidProfile { background: white; border: var(--outline); box-shadow: 10px 12px 0 rgba(23,54,74,.18); padding: 14px 14px 58px; position: relative; transform: rotate(-3deg); z-index: 2; }
+.polaroidProfile.reveal { transform: rotate(-3deg) translateY(30px); }
+.polaroidProfile.reveal.shown { transform: rotate(-3deg); }
 .profileImage { background: linear-gradient(#85cddd 0 62%, #e9ca8d 62%); border: 2px solid var(--navy); height: 420px; overflow: hidden; position: relative; }
 .profileSun { background: var(--yellow); border: 2px solid var(--navy); border-radius: 50%; height: 110px; position: absolute; right: 25px; top: 34px; width: 110px; }
 .profilePerson { align-items: center; background: var(--navy); border: var(--outline); border-radius: 85px 85px 0 0; bottom: -3px; color: white; display: flex; font-family: var(--font-display); font-size: 70px; height: 270px; justify-content: center; left: 50%; position: absolute; transform: translateX(-50%); width: 190px; }
@@ -798,9 +832,19 @@ h1 em::after {
 }
 .experienceMountain .projectGrid { margin-top: 80px; }
 .climbLog { background: rgba(255,250,240,.94); border: var(--outline); border-radius: 18px; box-shadow: var(--shadow); margin: 190px auto 0; max-width: 1150px; padding: 0 28px; position: relative; z-index: 6; }
-.climbStop { align-items: center; border-bottom: 2px dashed #b9c4ba; display: grid; gap: 22px; grid-template-columns: 55px 120px 1fr 1.35fr; min-height: 130px; padding: 20px 0; }
+.climbStop {
+  align-items: center; border-bottom: 2px dashed #b9c4ba; display: grid; gap: 22px;
+  grid-template-columns: 55px 120px 1fr 1.35fr; min-height: 130px; padding: 20px 0;
+  transition: background .3s ease, transform .3s ease;
+}
 .climbStop:last-child { border: 0; }
-.climbMarker { align-items: center; background: var(--coral); border: 2px solid var(--navy); border-radius: 50%; color: white; display: flex; font-family: var(--font-display); font-size: 19px; height: 43px; justify-content: center; width: 43px; }
+.climbStop:hover { background: rgba(244,120,91,.06); transform: translateX(4px); }
+.climbMarker {
+  align-items: center; background: var(--coral); border: 2px solid var(--navy); border-radius: 50%; color: white;
+  display: flex; font-family: var(--font-display); font-size: 19px; height: 43px; justify-content: center;
+  transition: box-shadow .3s ease; width: 43px;
+}
+.climbStop:hover .climbMarker { box-shadow: 0 0 0 7px rgba(244,120,91,.18), 0 0 18px rgba(244,120,91,.45); }
 .climbMarker svg { height: 18px; }
 .climbDate { font-size: 9px; font-weight: 900; letter-spacing: .1em; }
 .climbDate small { color: #668076; display: block; margin-top: 6px; }
@@ -1129,7 +1173,7 @@ body::after {
 
 .climbLog::before {
   border-left: 2px dashed rgba(73,96,92,.35); bottom: 65px; content: ""; left: 49px;
-  position: absolute; top: 65px;
+  filter: drop-shadow(0 0 6px rgba(244,120,91,.25)); position: absolute; top: 65px;
 }
 
 .townBike { bottom: 43px; height: 60px; left: 25%; position: absolute; width: 105px; z-index: 6; }

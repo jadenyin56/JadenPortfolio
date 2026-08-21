@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import Intro from "@/components/Intro";
 import Nav from "@/components/Nav";
+import Reveal from "@/components/Reveal";
 import { Cloud } from "@/components/SceneBits";
 
 export default function Home() {
@@ -73,7 +74,7 @@ export default function Home() {
       </section>
 
       <section className="fieldNotes" id="field-notes">
-        <div className="polaroidProfile">
+        <Reveal className="polaroidProfile">
           <div className="profileImage">
             <span className="profileSun" />
             <span className="profilePerson">JY</span>
@@ -81,8 +82,8 @@ export default function Home() {
           </div>
           <p>Somewhere warm, probably debugging.</p>
           <span className="photoTape" />
-        </div>
-        <div className="notesCopy">
+        </Reveal>
+        <Reveal className="notesCopy" delay={120}>
           <span className="chapter">ABOUT + CONTACT · BASE CAMP</span>
           <h2>Curious mind.<br />Practical builder.</h2>
           <p>
@@ -103,7 +104,7 @@ export default function Home() {
             <a href="https://github.com/jadenyin56" target="_blank" rel="noopener noreferrer"><Github /> GitHub ↗</a>
             <a href="https://www.linkedin.com/in/jadenyin56/" target="_blank" rel="noopener noreferrer"><Linkedin /> LinkedIn ↗</a>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       <footer className="arrivalFooter">Next departures: mountains · night city · old town</footer>
