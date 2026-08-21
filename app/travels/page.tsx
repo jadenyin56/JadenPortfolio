@@ -1,55 +1,8 @@
-import { Compass, Map, MapPin, Plane, UtensilsCrossed } from "lucide-react";
+import { ArrowLeft, MapPin, Plane } from "lucide-react";
+import Link from "next/link";
 import Nav from "@/components/Nav";
-import { Cloud } from "@/components/SceneBits";
+import Reveal from "@/components/Reveal";
 
-const countries = [
-  ["Canada", "HOME BASE", "CA", "Toronto"],
-  ["China", "FAMILY + FOOD", "CN", "Old streets"],
-  ["United States", "CITY WALKS", "US", "Big skylines"],
-  ["Japan", "DETAILS + DESIGN", "JP", "Tiny discoveries"],
-  ["France", "STREETS + TYPE", "FR", "Café corners"],
-  ["Italy", "LIGHT + ESPRESSO", "IT", "Slow afternoons"],
-];
-
-export default function Travels() {
-  return (
-    <main className="travelsPage">
-      <Nav />
-      <Cloud className="cloudOne" /><Cloud className="cloudTwo" />
-      <header className="travelHead">
-        <div className="personalPassport">
-          <span>CANADA</span><b>JY</b><small>FIELD PASSPORT<br />№ 0436532</small>
-        </div>
-        <div>
-          <span className="chapter">STOP 05 · JADEN&apos;S PASSPORT LOG</span>
-          <h1>Places that changed<br /><em>my point of view.</em></h1>
-          <p>Part travel log, part memory map—small details I carried home.</p>
-        </div>
-      </header>
-      <section className="travelMap">
-        <div className="mapPaper">
-          <span className="mapLand landOne" /><span className="mapLand landTwo" /><span className="mapLand landThree" />
-          <span className="mapPin pinOne" /><span className="mapPin pinTwo" /><span className="mapPin pinThree" />
-          <span className="mapCompass"><i /></span>
-          <span className="mapCoordinates">43°39&apos;N / 79°23&apos;W<br />JY ROUTE ARCHIVE</span>
-          <span className="personalRoute"><i>YYZ</i> · · · · · · · · · ✈ · · · · · · · · · <b>NEXT</b></span>
-          <div className="mapNote noteOne"><UtensilsCrossed /> follow the food</div>
-          <div className="mapNote noteTwo"><MapPin /> walk without a plan</div>
-        </div>
-      </section>
-      <section className="passportGrid travelPassportGrid">
-        {countries.map(([country, note, code, memory], index) => (
-          <article className={`countryStamp stamp${index + 1}`} key={country}>
-            <span>{code}</span><Map /><h2>{country}</h2><small>{note}</small><em>{memory}</em>
-          </article>
-        ))}
-        <article className="nextStamp"><Plane /><span>NEXT<br />STAMP?</span></article>
-      </section>
-      <div className="travelPhilosophy">
-        <Compass />
-        <p>I travel the way I build: stay curious, notice the details, leave room to change the route.</p>
-      </div>
-      <p className="draftNote">Initial passport log—ready for your real destinations and stories.</p>
-    </main>
-  );
+export default function TravelsPage() {
+  return <main className="travel-destination"><Nav /><div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 md:py-24"><Link href="/#about" className="text-link"><ArrowLeft size={15} /> Back home</Link><header className="max-w-3xl py-16"><span className="destination-tag">Detour 02 · The Passport Log</span><p className="eyebrow">Field notes / Travel</p><h1 className="archive-title text-balance text-5xl font-semibold tracking-[-.055em] text-white sm:text-6xl">Learning by going.</h1><p className="mt-6 text-lg leading-8 text-zinc-400">Travel remains part of the portfolio&apos;s original identity—now kept as a personal field log that complements the engineering work.</p></header><section className="grid gap-4 md:grid-cols-3">{["A place that changed my perspective", "A detail I brought home", "Where I want to go next"].map((title, index) => <Reveal className="travel-entry rounded-2xl border border-white/8 p-6" key={title} delay={index * 70}>{index === 2 ? <Plane className="text-sky-300" size={20} /> : <MapPin className="text-sky-300" size={20} />}<span className="mt-14 block font-mono text-[10px] text-zinc-500">ENTRY 0{index + 1}</span><h2 className="mt-3 text-xl font-medium text-white">{title}</h2><p className="mt-3 text-sm leading-6 text-zinc-400">TODO: add a real destination, photograph, and short story.</p></Reveal>)}</section></div></main>;
 }

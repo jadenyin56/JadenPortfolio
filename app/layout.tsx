@@ -1,26 +1,16 @@
-import type { Metadata } from "next";
-import { Anton, DM_Sans } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const sans = DM_Sans({ subsets: ["latin"], variable: "--font-sans" });
-const display = Anton({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-display",
-});
-
 export const metadata: Metadata = {
-  title: "Jaden Yin 尹泽华 — Designer & Developer",
-  description:
-    "The travel journal of Jaden Yin (尹泽华) — thoughtful digital products, memorable brands, and ideas built to go places.",
+  metadataBase: new URL("https://YOUR_DOMAIN.com"), // TODO: replace before deployment.
+  title: { default: "Jaden Yin — Software Engineer", template: "%s — Jaden Yin" },
+  description: "University of Waterloo Computer Engineering student building full-stack products, backend infrastructure, cloud systems, and AI tools.",
+  openGraph: { title: "Jaden Yin — Software Engineer", description: "Selected engineering work, experience, and technical case studies.", type: "website", images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Jaden Yin — Software Engineer" }] },
+  twitter: { card: "summary_large_image", title: "Jaden Yin — Software Engineer", description: "Selected engineering work, experience, and technical case studies.", images: ["/og-image.png"] },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="en">
-      <body className={`${sans.variable} ${display.variable}`}>{children}</body>
-    </html>
-  );
+export const viewport: Viewport = { colorScheme: "dark", themeColor: "#090b10" };
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="en"><body>{children}</body></html>;
 }

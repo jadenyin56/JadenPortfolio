@@ -1,49 +1,8 @@
-import { Aperture, Camera, Focus, MapPin } from "lucide-react";
+import { ArrowLeft, Camera, ImageIcon } from "lucide-react";
+import Link from "next/link";
 import Nav from "@/components/Nav";
+import Reveal from "@/components/Reveal";
 
-const frames = [
-  ["photoNight", "After the rain", "Toronto · 10:42 PM", "f/2.0　1/125　ISO 800"],
-  ["photoCoast", "The long way home", "Westbound · 7:18 PM", "f/5.6　1/500　ISO 200"],
-  ["photoStreet", "Corner stories", "Spadina Ave · 4:06 PM", "f/4.0　1/250　ISO 400"],
-  ["photoMorning", "First light", "Kitchen window · 7:31 AM", "f/2.8　1/80　ISO 320"],
-  ["photoTransit", "Between stops", "Line 1 · 6:14 PM", "f/1.8　1/100　ISO 640"],
-];
-
-export default function Photography() {
-  return (
-    <main className="photoPage">
-      <Nav light />
-      <header className="photoPageHead">
-        <div>
-          <span className="chapter">STOP 04 · JADEN&apos;S CONTACT SHEET</span>
-          <h1>Things I noticed<br /><em>along the way.</em></h1>
-        </div>
-        <div className="cameraProfile">
-          <span className="jyMonogram">JY</span>
-          <div><Camera /><b>Everyday observations</b><small>Toronto + wherever I land next</small></div>
-        </div>
-      </header>
-      <section className="contactSheet">
-        {frames.map(([style, title, place, settings], index) => (
-          <figure className={`travelPhoto sheetPhoto ${style}`} key={title}>
-            <div><i /><b /><span /></div>
-            <figcaption>
-              <strong>{String(index + 1).padStart(2, "0")} · {title}</strong>
-              <small>{place}</small>
-            </figcaption>
-            <em>{settings}</em>
-          </figure>
-        ))}
-        <div className="photoManifesto">
-          <Aperture />
-          <p>“The camera reminds me to look twice. Good software often starts the same way.”</p>
-          <span>— Jaden</span>
-        </div>
-      </section>
-      <div className="filmFooter">
-        <span><Focus /> JY FRAME ARCHIVE · 2026</span>
-        <span><MapPin /> 43.6532° N · 79.3832° W</span>
-      </div>
-    </main>
-  );
+export default function PhotographyPage() {
+  return <main className="photo-destination"><Nav /><div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 md:py-24"><Link href="/#about" className="text-link"><ArrowLeft size={15} /> Back home</Link><header className="max-w-3xl py-16"><span className="destination-tag">Detour 01 · The Contact Sheet</span><p className="eyebrow">Field notes / Photography</p><h1 className="archive-title text-balance text-5xl font-semibold tracking-[-.055em] text-white sm:text-6xl">Things worth noticing.</h1><p className="mt-6 text-lg leading-8 text-zinc-400">A quieter side of the site for photographs, places, and details outside the code editor.</p></header><section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{["photo-01.webp", "photo-02.webp", "photo-03.webp", "photo-04.webp", "photo-05.webp", "photo-06.webp"].map((file, index) => <Reveal className={`media-placeholder rounded-xl border border-white/8 ${index === 0 ? "sm:col-span-2 sm:row-span-2" : ""}`} key={file} delay={index * 50}><Camera size={22} /><span>Add a photograph</span><code>/personal/photography/{file}</code></Reveal>)}</section><p className="mt-8 flex items-center gap-2 text-xs text-zinc-600"><ImageIcon size={13} /> Replace these slots with Next.js Image components after adding your final photographs.</p></div></main>;
 }
