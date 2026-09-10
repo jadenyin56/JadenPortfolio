@@ -77,7 +77,7 @@ The résumé link currently opens a pre-addressed email request because no résu
 
 ### 3D Airplane Hero
 
-A Three.js / React Three Fiber animated plane entrance and interactive landing experience. `PlaneHeroScene.tsx` is intentionally isolated so the current lightweight scene can be replaced without changing hero content.
+A Three.js / React Three Fiber animated plane entrance and interactive landing experience. `PlaneHeroScene.tsx` is intentionally isolated so the current photographic scene can be replaced without changing hero content.
 
 ### Advanced Travel-Themed Animations
 
@@ -119,3 +119,11 @@ This feature is planned and is not implemented in Version 1.
 ## Deployment
 
 The project is ready for Vercel. Import the repository into Vercel or deploy with the Vercel CLI. The standard Next.js build command and output require no custom deployment configuration.
+
+## Portfolio finishing pass
+
+Restored the missing global stylesheet, added responsive layouts and keyboard menu dismissal, and replaced the CSS hero illustration with a locally served Kyoto photograph. Travels remains a preview; the map, uploads, EXIF routes, and 3D plane remain future work.
+
+Hero photography: [Leongsan on Unsplash](https://unsplash.com/photos/qy8A5NE0YNE), used under the [Unsplash License](https://unsplash.com/license). This is thematic photography, not a claim that Jaden took the photograph or visited Kyoto.
+
+The existing project SVGs are explicitly labeled concept illustrations. Replace them with actual product screenshots or hardware photographs when available. Project repository links should be added only after verifying the correct URLs. The résumé action remains an email request until a current PDF is supplied.
