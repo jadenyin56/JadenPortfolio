@@ -10,16 +10,16 @@ const newsreader = Newsreader({ subsets: ["latin"], variable: "--font-newsreader
 
 export const metadata: Metadata = {
   title: "Jaden Yin — Software Engineer",
-  description: "Software engineer and Computer Engineering student at the University of Waterloo building full-stack products, backend systems, cloud infrastructure, and AI.",
+  description: "Jaden Yin is a software engineer and Computer Engineering student building thoughtful products, systems, and AI experiences.",
   openGraph: {
     title: "Jaden Yin — Software Engineer",
-    description: "A travel-inspired portfolio of software, systems, and the journey behind them.",
+    description: "Selected software, systems, and field notes from the journey between them.",
     type: "website",
     locale: "en_CA",
   },
 };
 
-export const viewport: Viewport = { themeColor: "#f3ece0", colorScheme: "light" };
+export const viewport: Viewport = { themeColor: "#f3eee4", colorScheme: "light" };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="en" className={`${manrope.variable} ${plexMono.variable} ${newsreader.variable}`}><body><a className="skip-link" href="#main-content">Skip to content</a><Navbar/><div id="main-content">{children}</div><Footer/></body></html>;

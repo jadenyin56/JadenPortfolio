@@ -1,6 +1,6 @@
-import Image from "next/image";
-import { ArrowUpRight, Github, Radio } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
 import type { Project } from "@/types";
+import { MediaRail } from "@/components/ui/MediaRail";
 import { Tag } from "@/components/ui/Tag";
 
 export function ProjectCard({
@@ -14,24 +14,15 @@ export function ProjectCard({
   return (
     <article
       className={
-        project.featured ? "project-card project-featured" : "project-card"
+        `${project.featured ? "project-card project-featured" : "project-card"} project-${project.slug}`
       }
     >
-      <div className="project-image-wrap">
-        <Image
-          className="project-image"
-          src={project.image}
-          alt={project.imageAlt}
-          fill
-          sizes="(max-width: 768px) 100vw, 65vw"
-          loading="lazy"
-        />
-        <div className="image-corner image-corner-top" />
-        <div className="image-corner image-corner-bottom" />
-        <span className="project-route">
-          {project.route} · Concept illustration
-        </span>
-      </div>
+      <MediaRail
+        className="project-image-wrap"
+        items={project.media}
+        title={`${project.title} media`}
+        eyebrow={project.route}
+      />
       <div className="project-details">
         <div className="project-ticket-top">
           <span>Journal entry / {projectNumber}</span>
@@ -41,7 +32,6 @@ export function ProjectCard({
         </div>
         <div>
           <div className="project-category">
-            <Radio size={12} />
             {project.category}
             {project.status === "in-progress" ? <span>In progress</span> : null}
           </div>

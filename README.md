@@ -1,129 +1,78 @@
-# Travel-Themed Developer Portfolio
+# Jaden Yin — Portfolio
 
-## Overview
+A cinematic, image-led portfolio for software engineer Jaden Yin. The site combines an editorial project archive with the warmth, restraint, and material character of contemporary Japanese interiors and travel publishing.
 
-This is Jaden Yin's personal software engineering portfolio, built around the idea of a professional and personal journey. Travel references shape the visual language—routes, coordinates, destination codes, and itinerary details—while the content remains focused on engineering work and impact.
+## Art direction
 
-Version 1 focuses on:
+The interface is intentionally not a collection of dashboard cards. Its primary visual language is photography, supported by expressive editorial typography, asymmetrical compositions, thin rules, muted natural colours, and restrained motion.
 
-- A strong landing page and clear personal introduction
-- Editorial project presentations
-- Professional experience and measurable outcomes
-- Responsive layouts for desktop, tablet, and mobile
-- An initial travel-inspired design system
-- Accessible, performant component architecture
+- Warm ivory, cedar, ink, and moss section palettes
+- Full-bleed photographic hero environment
+- Individual editorial treatments for each featured project
+- Native horizontal photo/video rails for projects and experience
+- Open, typographic experience ledger for fast scanning
+- Image-led travel journal preview with a dedicated `/travels` route
+- Clip-mask image entrances and slow image scaling
 
-More advanced travel and motion features are intentionally reserved for later versions.
-
-## Tech Stack
+## Stack
 
 - Next.js App Router
-- React
-- TypeScript
-- Tailwind CSS
-- Motion for small reveal transitions
+- React and TypeScript
+- Tailwind CSS tooling with a custom global visual system
+- Motion for the small number of intentional text entrances
+- `next/image` and `next/font` for optimized media and typography
 - Lucide icons
-- Vercel-ready deployment
 
-## Running Locally
-
-Install dependencies and start the development server:
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000).
 
-Before shipping changes, run:
+Before shipping:
 
 ```bash
 npm run lint
 npm run build
 ```
 
-## Project Structure
+## Content map
 
 ```text
 src/
-  app/              Page shell, metadata, favicon, and global styles
+  app/               Metadata, favicon, page shell, and global art direction
   components/
-    contact/        Closing contact section
-    experience/     Experience section, timeline, and timeline items
-    hero/           Hero content and future 3D scene boundary
-    layout/         Navigation and footer
-    projects/       Project list and reusable project card
-    travel/         Future travel archive preview
-    ui/             Small shared presentation components
-  data/             Editable project, experience, and site content
-  lib/              Shared utilities
-  types/            Content types
-public/
-  images/projects/  Project artwork used by next/image
+    hero/             Photographic landing composition
+    projects/         Editorial project stories
+    experience/       Professional experience ledger
+    travel/           Travel archive preview
+    contact/          Contact close
+    layout/           Navigation and footer
+    ui/               Small shared primitives
+  data/               Editable project, experience, and contact content
+  types/              Shared content types
+public/images/
+  editorial/          Hero and travel visual studies
+  projects-real/      Real project photos, branding, and UI captures
 ```
 
-## Updating Content
+Update portfolio content in `src/data/projects.ts`, `src/data/experience.ts`, and `src/data/site.ts`. Project and experience media rails are driven by the `media` arrays in those data files; replace any placeholder item with a local image path when new photography or screenshots are ready.
 
-- Projects: edit `src/data/projects.ts`
-- Experience: edit `src/data/experience.ts`
-- Email and social links: edit `src/data/site.ts`
-- Hero copy: edit `src/components/hero/Hero.tsx`
-- Project artwork: replace files in `public/images/projects/` and update the matching image path and alt text
+## Image sources
 
-The résumé link currently opens a pre-addressed email request because no résumé PDF is included. Replace it with a direct file link when a current résumé is added.
+The project section uses authentic public assets from Jaden's repositories and project pages: the Crossly interface, the Circadia hardware prototype, and RoamAble branding.
 
-## Future Features
+Hero photography is by [Yosuke Ota on Unsplash](https://unsplash.com/photos/OYR2mPD3yRY). The travel preview photograph is by [PJH on Unsplash](https://unsplash.com/photos/4DBoU9HeYos). Both are used under the [Unsplash License](https://unsplash.com/license). Replace the travel preview with Jaden's own photography as the journal grows.
 
-### 3D Airplane Hero
+## Future work
 
-A Three.js / React Three Fiber animated plane entrance and interactive landing experience. `PlaneHeroScene.tsx` is intentionally isolated so the current photographic scene can be replaced without changing hero content.
+- Replace the isolated hero scene with a Three.js / React Three Fiber airplane arrival without disturbing the content layer.
+- Replace the placeholder chapters on `/travels` with photograph-first city notes and individual trip stories.
+- Add an interactive visited-cities map only when real travel content is ready to support it.
+- Optionally infer routes from uploaded photograph EXIF coordinates and timestamps.
+- Replace the résumé request email with a direct PDF once a current résumé is available.
 
-### Advanced Travel-Themed Animations
-
-Planned motion work includes:
-
-- Luggage-tag interactions
-- Passport-stamp transitions
-- Flight-path animation
-- Scroll-linked travel elements
-
-### Interactive Travels Map
-
-A world map showing visited cities. Selecting a city will eventually display:
-
-- Photos
-- Videos
-- Written notes
-- Trip information
-
-The current `TravelsPreview.tsx` component is a self-contained placeholder for that larger feature.
-
-### Automatic Travel Route Reconstruction
-
-Planned functionality may analyze available EXIF metadata from uploaded travel photos, including:
-
-- GPS coordinates
-- Timestamps
-
-The application could then:
-
-1. Sort photos chronologically
-2. Map their geographic coordinates
-3. Infer the travelled route
-4. Visualize stops
-5. Animate the journey across the world map
-
-This feature is planned and is not implemented in Version 1.
-
-## Deployment
-
-The project is ready for Vercel. Import the repository into Vercel or deploy with the Vercel CLI. The standard Next.js build command and output require no custom deployment configuration.
-
-## Portfolio finishing pass
-
-Restored the missing global stylesheet, added responsive layouts and keyboard menu dismissal, and replaced the CSS hero illustration with a locally served Kyoto photograph. Travels remains a preview; the map, uploads, EXIF routes, and 3D plane remain future work.
-
-Hero photography: [Leongsan on Unsplash](https://unsplash.com/photos/qy8A5NE0YNE), used under the [Unsplash License](https://unsplash.com/license). This is thematic photography, not a claim that Jaden took the photograph or visited Kyoto.
-
-The existing project SVGs are explicitly labeled concept illustrations. Replace them with actual product screenshots or hardware photographs when available. Project repository links should be added only after verifying the correct URLs. The résumé action remains an email request until a current PDF is supplied.
+The existing single-page architecture keeps these additions possible without making unfinished features appear live.

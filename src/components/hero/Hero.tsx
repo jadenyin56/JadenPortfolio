@@ -8,22 +8,35 @@ export function Hero() {
       <div className="hero-main">
         <Reveal className="hero-copy">
           <p className="hero-overline">
-            <span>JY / 旅程</span>Portfolio · 2026
+            <span>JY / 旅程</span>Engineer · Toronto
           </p>
           <h1>
-            Jaden <em>Yin</em>
+            <span
+              className="name-swap"
+              tabIndex={0}
+              aria-label="Jaden Yin, Chinese name Yin Zehua"
+            >
+              <span className="name-primary" aria-hidden="true">
+                Jaden <em>Yin</em>
+              </span>
+              <span className="name-chinese" lang="zh-Hans" aria-hidden="true">
+                尹<em>泽华</em>
+              </span>
+            </span>
           </h1>
           <p className="hero-role">
-            Software engineer
+            <span>Software engineer,</span>
             <br />
-            &amp; occasional traveller.
+            <span>occasional traveller.</span>
           </p>
           <p className="hero-intro">
-            I build thoughtful software across{" "}
-            <strong>
-              full-stack products, backend systems, cloud infrastructure, and AI
-            </strong>
-            —then collect places along the way.
+            <span>
+              I build considered software across{" "}
+              <strong>
+                full-stack products, backend systems, cloud infrastructure, and AI
+              </strong>
+              —and collect places along the way.
+            </span>
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#projects">
@@ -41,14 +54,14 @@ export function Hero() {
             <strong>Toronto / Waterloo</strong>
           </div>
           <div className="hero-route">
-            <span>Currently</span>
+            <span>Currently studying</span>
             <strong>Waterloo CE</strong>
           </div>
         </Reveal>
       </div>
-      <Reveal className="hero-visual" delay={0.14}>
+      <div className="hero-visual">
         <PlaneHeroScene />
-      </Reveal>
+      </div>
       <div className="hero-margin-note" aria-hidden="true">
         Quiet systems / useful journeys
       </div>

@@ -3,27 +3,24 @@ import Image from "next/image";
 // Keep the scene isolated for the later 3D airplane entrance.
 export function PlaneHeroScene() {
   return (
-    <figure className="plane-scene">
-      <div className="scene-photo">
-        <Image
-          src="/images/travel/kyoto.jpg"
-          alt="A quiet Kyoto lane lined with traditional wooden houses, with a pagoda in the distance"
-          fill
-          sizes="(max-width: 700px) 90vw, 45vw"
-          preload
-        />
-      </div>
-      <span className="scene-stamp" aria-hidden="true">
-        旅の途中
-      </span>
+    <figure className="plane-scene" data-future-three-scene>
+      <Image
+        className="hero-photo"
+        src="/images/editorial/hero-ryokan.jpg"
+        alt="A traditional Japanese tatami room with shoji screens and a sunlit garden view"
+        fill
+        sizes="100vw"
+        priority
+      />
+      <span className="hero-photo-grain" aria-hidden="true" />
       <figcaption className="scene-caption">
-        <strong>A little further.</strong>
+        <span>Hamarikyu Gardens / Tokyo</span>
         <a
-          href="https://unsplash.com/photos/qy8A5NE0YNE"
+          href="https://unsplash.com/photos/OYR2mPD3yRY"
           target="_blank"
           rel="noreferrer"
         >
-          Kyoto · Photo by Leongsan
+          Photo · Yosuke Ota
         </a>
       </figcaption>
     </figure>

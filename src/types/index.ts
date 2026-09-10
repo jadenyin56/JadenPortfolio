@@ -1,3 +1,11 @@
+export type MediaItem = {
+  kind: "image" | "photo-placeholder" | "video-placeholder";
+  src?: string;
+  alt: string;
+  label: string;
+  caption: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -8,8 +16,7 @@ export type Project = {
   year: string;
   route: string;
   technologies: string[];
-  image: string;
-  imageAlt: string;
+  media: MediaItem[];
   featured?: boolean;
   location?: string;
   github?: string;
@@ -26,4 +33,5 @@ export type Experience = {
   description: string;
   accomplishments: string[];
   technologies: string[];
+  media: MediaItem[];
 };

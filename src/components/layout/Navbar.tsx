@@ -1,14 +1,15 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import { site } from "@/data/site";
 
 const links = [
-  { href: "#projects", label: "Projects", code: "01" },
-  { href: "#experience", label: "Experience", code: "02" },
-  { href: "#travels", label: "Travels", code: "03" },
-  { href: "#contact", label: "Contact", code: "04" },
+  { href: "/#projects", label: "Projects", code: "01" },
+  { href: "/#experience", label: "Experience", code: "02" },
+  { href: "/travels", label: "Travels", code: "03" },
+  { href: "/#contact", label: "Contact", code: "04" },
 ];
 
 export function Navbar() {
@@ -25,16 +26,16 @@ export function Navbar() {
       }}
     >
       <div className="page-container nav-shell">
-        <a
+        <Link
           className="nav-brand"
-          href="#home"
+          href="/"
           aria-label="Jaden Yin, back to home"
         >
           <span className="brand-seal" aria-hidden="true">
             JY
           </span>
           <span>{site.name}</span>
-        </a>
+        </Link>
         <div className="nav-coordinates" aria-hidden="true">
           <span>Toronto</span>
           <i />
@@ -57,10 +58,10 @@ export function Navbar() {
           aria-label="Primary navigation"
         >
           {links.map((link) => (
-            <a href={link.href} key={link.href} onClick={() => setOpen(false)}>
+            <Link href={link.href} key={link.href} onClick={() => setOpen(false)}>
               <span>{link.code}</span>
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>
