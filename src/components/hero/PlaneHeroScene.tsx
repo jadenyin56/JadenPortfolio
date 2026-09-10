@@ -1,12 +1,31 @@
-import { Plane } from "lucide-react";
+import Image from "next/image";
 
+// Keep the scene isolated for the later 3D airplane entrance.
 export function PlaneHeroScene() {
-  return <div className="plane-scene" data-future-three-scene aria-label="A quiet architectural scene reserved for a future airplane animation">
-    <div className="shoji-light" aria-hidden="true"/>
-    <div className="shoji-grid" aria-hidden="true"><i/><i/><i/><i/></div>
-    <div className="plane-shadow" aria-hidden="true"><Plane size={72} strokeWidth={.75}/></div>
-    <div className="plant" aria-hidden="true"><i/><i/><i/><span/></div>
-    <div className="scene-caption"><span>Future scene / 01</span><strong>Light, air,<br/>and quiet motion.</strong></div>
-    <div className="scene-coordinate"><span>43°39&apos; N</span><i/><span>79°23&apos; W</span></div>
-  </div>;
+  return (
+    <figure className="plane-scene">
+      <div className="scene-photo">
+        <Image
+          src="/images/travel/kyoto.jpg"
+          alt="A quiet Kyoto lane lined with traditional wooden houses, with a pagoda in the distance"
+          fill
+          sizes="(max-width: 700px) 90vw, 45vw"
+          preload
+        />
+      </div>
+      <span className="scene-stamp" aria-hidden="true">
+        旅の途中
+      </span>
+      <figcaption className="scene-caption">
+        <strong>A little further.</strong>
+        <a
+          href="https://unsplash.com/photos/qy8A5NE0YNE"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Kyoto · Photo by Leongsan
+        </a>
+      </figcaption>
+    </figure>
+  );
 }
