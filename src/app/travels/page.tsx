@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowLeft, ArrowUpRight, ImagePlus, Play } from "lucide-react";
+import { ThemePhoto } from "@/components/ui/ThemePhoto";
 
 export const metadata: Metadata = {
   title: "Travels — Jaden Yin",
@@ -18,18 +18,19 @@ export default function TravelsPage() {
   return (
     <main className="travel-page">
       <section className="travel-page-hero">
-        <Image
+        <ThemePhoto
           className="travel-page-hero-image"
-          src="/images/editorial/travel-train.jpg"
-          alt="A rural Japanese landscape framed by the window of a local train"
-          fill
+          daySrc="/images/editorial/travel-train.jpg"
+          nightSrc="/images/editorial/night-tokyo-train.jpg"
+          dayAlt="A rural Japanese landscape framed by the window of a local train"
+          nightAlt="A train moving between neon-lit buildings in Shibuya at night"
           sizes="100vw"
-          priority
+          preload
         />
         <span className="travel-page-shade" aria-hidden="true" />
         <div className="page-container travel-page-hero-inner">
-          <Link className="travel-back-link" href="/#travels">
-            <ArrowLeft size={15} /> Back to portfolio
+          <Link className="travel-back-link" href="/">
+            <ArrowLeft size={15} /> Back home
           </Link>
           <div className="travel-page-title">
             <p>旅 / Travel archive · volume one</p>

@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/ui/Reveal";
 
 type SectionHeadingProps = {
   index: string;
@@ -13,7 +14,7 @@ type SectionHeadingProps = {
 export function SectionHeading({ index, eyebrow, marker, title, description, light = false, className }: SectionHeadingProps) {
   return <header className={cn("section-heading-grid", light && "section-heading-light", className)}>
     <div className="section-identity">{marker ? <span className="section-marker" aria-hidden="true">{marker}</span> : null}<p className="section-kicker"><span>{index}</span>{eyebrow}</p></div>
-    <h2>{title}</h2>
+    <Reveal className="section-title-reveal"><h2>{title}</h2></Reveal>
     {description ? <p className="section-description">{description}</p> : null}
   </header>;
 }

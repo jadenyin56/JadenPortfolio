@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ThemePhoto } from "@/components/ui/ThemePhoto";
 
 export function TravelsPreview() {
   return (
@@ -30,22 +30,25 @@ export function TravelsPreview() {
             </p>
           </div>
           <figure className="travel-image-wrap">
-            <Image
+            <ThemePhoto
               className="travel-image"
-              src="/images/editorial/travel-train.jpg"
-              alt="A rural Japanese landscape seen through the window of a local train"
-              fill
+              daySrc="/images/editorial/travel-train.jpg"
+              nightSrc="/images/editorial/night-tokyo-train.jpg"
+              dayAlt="A rural Japanese landscape seen through the window of a local train"
+              nightAlt="A train moving through neon-lit Shibuya at night"
               sizes="(max-width: 800px) 100vw, 86vw"
             />
             <figcaption className="travel-caption">
-              <a
+              <a className="theme-caption-day"
                 href="https://unsplash.com/photos/4DBoU9HeYos"
                 target="_blank"
                 rel="noreferrer"
               >
                 Yamaguchi · Photo by PJH
               </a>
-              <span>34.05° N / 131.57° E</span>
+              <a className="theme-caption-night" href="https://unsplash.com/photos/a-train-traveling-through-a-city-at-night-2QZUaKlqkMY" target="_blank" rel="noreferrer">Shibuya · Photo by mos design</a>
+              <span className="theme-caption-day">34.05° N / 131.57° E</span>
+              <span className="theme-caption-night">35.65° N / 139.70° E</span>
             </figcaption>
           </figure>
           <div className="travel-coming">

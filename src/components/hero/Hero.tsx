@@ -1,12 +1,12 @@
 import { ArrowDownRight, ArrowUpRight, MapPin } from "lucide-react";
-import { Reveal } from "@/components/ui/Reveal";
 import { PlaneHeroScene } from "./PlaneHeroScene";
+import Link from "next/link";
 
 export function Hero() {
   return (
     <section className="hero page-container" id="home">
       <div className="hero-main">
-        <Reveal className="hero-copy">
+        <div className="hero-copy hero-copy-enter">
           <p className="hero-overline">
             <span>JY / 旅程</span>Engineer · Toronto
           </p>
@@ -39,15 +39,15 @@ export function Hero() {
             </span>
           </p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#projects">
+            <Link className="button button-primary" href="/projects">
               View work <ArrowDownRight size={16} />
-            </a>
-            <a className="button button-secondary" href="#contact">
+            </Link>
+            <Link className="button button-secondary" href="/contact">
               Get in touch <ArrowUpRight size={15} />
-            </a>
+            </Link>
           </div>
-        </Reveal>
-        <Reveal className="hero-meta" delay={0.08}>
+        </div>
+        <div className="hero-meta hero-meta-enter">
           <div>
             <MapPin size={15} />
             <span>Based in Canada</span>
@@ -57,7 +57,7 @@ export function Hero() {
             <span>Currently studying</span>
             <strong>Waterloo CE</strong>
           </div>
-        </Reveal>
+        </div>
       </div>
       <div className="hero-visual">
         <PlaneHeroScene />

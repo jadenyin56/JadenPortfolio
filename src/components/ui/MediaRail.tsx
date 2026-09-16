@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, ImagePlus, Play } from "lucide-react";
 import { useReducedMotion } from "motion/react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { MediaItem } from "@/types";
 import { cn } from "@/lib/utils";
 
@@ -12,6 +12,8 @@ type MediaRailProps = {
   title: string;
   className?: string;
   eyebrow?: string;
+  autoPlay?: boolean;
+  direction?: 1 | -1;
 };
 
 export function MediaRail({
@@ -19,20 +21,50 @@ export function MediaRail({
   title,
   className,
   eyebrow,
+  autoPlay = false,
+  direction = 1,
 }: MediaRailProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
+  const railRef = useRef<HTMLElement>(null);
   const frameRef = useRef<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [inView, setInView] = useState(false);
   const reduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    const rail = railRef.current;
+    if (!rail) return;
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { threshold: 0.22 });
+    observer.observe(rail);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!autoPlay || !inView || reduceMotion || paused || items.length < 2 || window.matchMedia("(max-width: 760px)").matches) return;
+    const timer = window.setInterval(() => {
+      setActiveIndex((current) => {
+        const next = direction === 1
+          ? (current + 1) % items.length
+          : (current - 1 + items.length) % items.length;
+        const viewport = viewportRef.current;
+        const target = viewport?.children.item(next) as HTMLElement | null;
+        if (viewport && target) viewport.scrollTo({ left: target.offsetLeft, top: 0, behavior: "smooth" });
+        return next;
+      });
+    }, 5200);
+    return () => window.clearInterval(timer);
+  }, [autoPlay, direction, inView, items.length, paused, reduceMotion]);
+
+  useEffect(() => () => {
+    if (frameRef.current !== null) window.cancelAnimationFrame(frameRef.current);
+  }, []);
 
   function moveTo(nextIndex: number) {
     const boundedIndex = Math.max(0, Math.min(nextIndex, items.length - 1));
-    const target = viewportRef.current?.children.item(boundedIndex);
-    target?.scrollIntoView({
-      behavior: reduceMotion ? "auto" : "smooth",
-      block: "nearest",
-      inline: "start",
-    });
+    const viewport = viewportRef.current;
+    const target = viewport?.children.item(boundedIndex) as HTMLElement | null;
+    if (viewport && target) viewport.scrollTo({ left: target.offsetLeft, top: 0, behavior: reduceMotion ? "auto" : "smooth" });
     setActiveIndex(boundedIndex);
   }
 
@@ -56,7 +88,7 @@ export function MediaRail({
   }
 
   return (
-    <section className={cn("media-rail", className)} aria-label={title}>
+    <section ref={railRef} className={cn("media-rail", autoPlay && "media-rail-auto", className)} aria-label={title} onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} onFocusCapture={() => setPaused(true)} onBlurCapture={() => setPaused(false)}>
       <div
         ref={viewportRef}
         className="media-viewport"
