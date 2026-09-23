@@ -4,6 +4,7 @@ import { Pause, Play, SkipBack, SkipForward, Volume2, VolumeX } from "lucide-rea
 import { useCallback, useEffect, useRef, useState } from "react";
 import { tracks } from "@/data/music";
 import { playUiTap, setSoundMuted, soundIsMuted } from "@/lib/audio";
+import { ThemePhoto } from "@/components/ui/ThemePhoto";
 
 type AmbientRig = {
   context: AudioContext;
@@ -104,11 +105,13 @@ export function AudioDock() {
     <aside className="audio-dock" aria-label="Ambient music player">
       <button className="vinyl-button" type="button" onClick={togglePlayback} aria-label={playing ? "Pause ambient music" : "Play ambient music"}>
         <span className={playing ? "vinyl is-spinning" : "vinyl"} aria-hidden="true"><i /></span>
+        <span className="record-cover" aria-hidden="true"><ThemePhoto className="record-cover-image" daySrc={track.albumArt ?? "/images/editorial/hero-ryokan.jpg"} nightSrc={track.nightAlbumArt ?? track.albumArt ?? "/images/editorial/night-tokyo-rain.jpg"} dayAlt="" nightAlt="" sizes="64px" /></span>
         <span className="vinyl-state">{playing ? <Pause size={11} /> : <Play size={11} />}</span>
       </button>
       <div className="audio-copy">
-        <span>{playing ? "Now playing" : "Music / optional"}</span>
+        <span>{playing ? "Now playing" : "Music"}</span>
         <strong>{track.title}</strong>
+        <small>{track.artist}</small>
       </div>
       <div className="audio-actions">
         <button type="button" onClick={() => changeTrack(-1)} aria-label="Previous track"><SkipBack size={13} /></button>

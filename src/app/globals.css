@@ -529,6 +529,11 @@ svg {
   align-items: end;
 }
 
+/* Keep the home cover connected to the first page of work. */
+.projects-section .section-heading-grid {
+  padding-top: clamp(12px, 2vw, 24px);
+}
+
 .section-identity {
   align-self: stretch;
   display: flex;
@@ -1265,7 +1270,7 @@ svg {
 .travel-page-index.page-container {
   width: 100%;
   max-width: none;
-  padding: clamp(110px, 13vw, 190px) 0 clamp(100px, 12vw, 170px) clamp(24px, 5.5vw, 88px);
+  padding: clamp(12px, 2vw, 24px) 0 clamp(100px, 12vw, 170px) clamp(24px, 5.5vw, 88px);
   overflow: hidden;
 }
 
@@ -1766,6 +1771,102 @@ svg {
   transform-origin: top;
 }
 
+.route-curtain.is-suppressed { display: none; }
+
+body:has(.work-door-overlay) { overflow: hidden; }
+
+.work-door-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  display: flex;
+  overflow: hidden;
+  pointer-events: all;
+}
+
+.work-door-panel {
+  width: 50%;
+  height: 100%;
+  flex: 0 0 50%;
+  position: relative;
+  background-color: #e7ddcb;
+  background-image:
+    linear-gradient(90deg, rgba(68, 48, 31, .17), transparent 14%, transparent 86%, rgba(68, 48, 31, .19)),
+    repeating-linear-gradient(90deg, transparent 0 86px, rgba(70, 49, 33, .64) 86px 94px),
+    repeating-linear-gradient(0deg, transparent 0 91px, rgba(70, 49, 33, .6) 91px 99px);
+  box-shadow: inset 0 0 0 10px #624c3b, inset 0 0 0 13px #b99e7c, 0 0 30px rgba(12, 9, 7, .4);
+}
+
+.work-door-panel::after {
+  content: "";
+  width: 27px;
+  height: 27px;
+  position: absolute;
+  top: 50%;
+  border: 5px solid #5a4534;
+  border-radius: 50%;
+  background: #2f2a23;
+  box-shadow: 0 0 0 2px rgba(243, 232, 212, .7);
+}
+
+.work-door-panel.is-left::after { right: 42px; }
+.work-door-panel.is-right::after { left: 42px; }
+
+.work-door-overlay.is-night .work-door-panel {
+  background-color: #101b27;
+  background-image:
+    linear-gradient(90deg, #07111b 0%, #1e3545 42%, #0c1724 100%),
+    repeating-linear-gradient(0deg, transparent 0 3px, rgba(202, 234, 247, .03) 3px 4px);
+  box-shadow: inset 0 0 0 2px rgba(178, 217, 231, .18), inset 0 0 90px rgba(0, 0, 0, .4), 0 0 32px rgba(0, 0, 0, .55);
+}
+
+.work-door-overlay.is-night .work-door-panel::after { display: none; }
+.work-door-overlay.is-night .work-door-panel.is-left { border-right: 2px solid #20e4ff; }
+.work-door-overlay.is-night .work-door-panel.is-right { border-left: 2px solid #20e4ff; }
+
+.work-door-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  padding: 11px 16px;
+  border: 1px solid rgba(74, 54, 39, .5);
+  background: #e7ddcb;
+  color: #47372a;
+  font: 11px/1 var(--font-mono);
+  letter-spacing: .24em;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.work-door-overlay.is-night .work-door-caption {
+  border-color: #20e4ff;
+  background: #0c1724;
+  color: #c9f8ff;
+  box-shadow: 0 0 24px rgba(32, 228, 255, .2);
+}
+
+.work-door-overlay.is-closing .work-door-panel.is-left { animation: work-door-close-left 900ms cubic-bezier(.72, 0, .22, 1) both; }
+.work-door-overlay.is-closing .work-door-panel.is-right { animation: work-door-close-right 900ms cubic-bezier(.72, 0, .22, 1) both; }
+.work-door-overlay.is-covered .work-door-panel { transform: translateX(0); }
+.work-door-overlay.is-opening .work-door-panel.is-left { animation: work-door-open-left 900ms cubic-bezier(.76, 0, .22, 1) both; }
+.work-door-overlay.is-opening .work-door-panel.is-right { animation: work-door-open-right 900ms cubic-bezier(.76, 0, .22, 1) both; }
+.work-door-overlay.is-closing .work-door-caption { animation: work-door-caption-in 900ms both; }
+.work-door-overlay.is-covered .work-door-caption { opacity: 1; }
+.work-door-overlay.is-opening .work-door-caption { animation: work-door-caption-out 320ms both; }
+
+@keyframes work-door-close-left { from { transform: translateX(-101%); } to { transform: translateX(0); } }
+@keyframes work-door-close-right { from { transform: translateX(101%); } to { transform: translateX(0); } }
+@keyframes work-door-open-left { from { transform: translateX(0); } to { transform: translateX(-101%); } }
+@keyframes work-door-open-right { from { transform: translateX(0); } to { transform: translateX(101%); } }
+@keyframes work-door-caption-in { 0%, 63% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes work-door-caption-out { from { opacity: 1; } to { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .work-door-overlay { display: none; }
+}
+
 .hero-copy-enter,
 .page-masthead-title {
   animation: editorial-copy-in .9s .14s cubic-bezier(.16, 1, .3, 1) both;
@@ -1855,17 +1956,17 @@ svg {
   transform: scaleX(1);
 }
 
-/* Persistent, deliberately small sound object */
+/* Persistent music object with visible record artwork */
 .audio-dock {
   position: fixed;
   right: 18px;
   bottom: 18px;
   z-index: 45;
-  min-width: 268px;
-  padding: 9px 10px 9px 9px;
+  min-width: 340px;
+  padding: 9px 11px 9px 9px;
   display: grid;
-  grid-template-columns: 42px 1fr auto;
-  gap: 10px;
+  grid-template-columns: 76px minmax(100px, 1fr) auto;
+  gap: 12px;
   align-items: center;
   border: 1px solid rgba(243, 238, 228, .2);
   background: rgba(27, 30, 27, .91);
@@ -1875,8 +1976,8 @@ svg {
 }
 
 .vinyl-button {
-  width: 42px;
-  height: 42px;
+  width: 76px;
+  height: 68px;
   padding: 0;
   position: relative;
   border: 0;
@@ -1885,11 +1986,12 @@ svg {
 }
 
 .vinyl {
-  width: 38px;
-  height: 38px;
+  width: 58px;
+  height: 58px;
   display: block;
   position: absolute;
-  inset: 2px;
+  top: 5px;
+  right: 0;
   border: 1px solid rgba(243, 238, 228, .26);
   border-radius: 50%;
   background: repeating-radial-gradient(circle, #161815 0 2px, #272a25 2px 4px);
@@ -1905,16 +2007,36 @@ svg {
 }
 
 .vinyl i {
-  inset: 17px;
+  inset: 25px;
   background: var(--ivory);
 }
 
+.record-cover {
+  width: 62px;
+  height: 62px;
+  position: absolute;
+  top: 3px;
+  left: 0;
+  overflow: hidden;
+  border: 1px solid rgba(243, 238, 228, .5);
+  background: #232824;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, .35);
+}
+
+.record-cover-image { object-fit: cover; }
+
 .vinyl-state {
   position: absolute;
-  inset: 0;
+  top: 50%;
+  left: 31px;
+  width: 26px;
+  height: 26px;
   display: grid;
   place-items: center;
+  border-radius: 50%;
+  background: #f3eee4;
   color: var(--ink);
+  transform: translate(-50%, -50%);
 }
 
 .vinyl.is-spinning {
@@ -1936,10 +2058,15 @@ svg {
 
 .audio-copy strong {
   overflow: hidden;
-  color: var(--ivory);
+  color: #f3eee4;
   font: italic 14px/1.35 var(--font-serif);
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.audio-copy small {
+  color: rgba(243, 238, 228, .6);
+  font: 9px/1.5 var(--font-mono);
 }
 
 .audio-actions {
@@ -2125,7 +2252,11 @@ svg {
 
 /* Project archive and slow-moving image rails */
 .projects-section-no-heading .projects-list {
-  padding-top: clamp(70px, 9vw, 125px);
+  padding-top: 0;
+}
+
+.projects-section-no-heading .project-card:first-child {
+  padding-top: 0;
 }
 
 .projects-list-preview {
@@ -2344,13 +2475,14 @@ svg {
 }
 
 .home-experience.is-standalone .home-experience-grid {
-  min-height: 920px;
+  min-height: 0;
+  padding-top: clamp(12px, 2vw, 24px);
   align-items: start;
 }
 
 .home-experience.is-standalone .home-experience-copy,
 .home-experience.is-standalone .home-experience-artifact {
-  align-self: center;
+  align-self: start;
 }
 
 .home-outcomes {
@@ -2638,8 +2770,9 @@ svg {
     right: 10px;
     bottom: 10px;
     min-width: 0;
-    grid-template-columns: 42px 110px 28px;
+    grid-template-columns: 68px minmax(100px, 1fr) 28px;
   }
+  .vinyl-button { width: 68px; }
   .audio-copy { width: 110px; }
   .audio-actions { display: flex; }
   .audio-actions button:not(:last-child) { display: none; }
@@ -2691,6 +2824,8 @@ svg {
   .page-masthead-title h1 { font-size: clamp(56px, 18vw, 78px); }
   .home-experience-grid { grid-template-columns: 1fr; }
   .home-experience-index { flex-direction: row; align-items: center; }
+  .home-experience.is-standalone .home-experience-grid { row-gap: 16px; }
+  .home-experience.is-standalone .home-experience-index strong { font-size: 42px; }
   .home-experience-artifact { grid-column: 1; }
   .project-page-header { grid-template-columns: 1fr; }
   .project-page-intro { grid-column: 1; }
@@ -3028,6 +3163,9 @@ html[data-theme="night"] .audio-dock { background: rgba(5, 8, 14, .95); }
 
 html[data-theme="night"] .audio-dock { border-color: rgba(32, 228, 255, .28); }
 
+html[data-theme="night"] .audio-copy strong { color: #f8fbff; }
+html[data-theme="night"] .vinyl-state { color: #101827; }
+
 html[data-theme="night"] .vinyl::before,
 html[data-theme="night"] .vinyl i { background: var(--cedar); }
 
@@ -3091,4 +3229,242 @@ html[data-theme="night"] .hero-intro strong,
 html[data-theme="night"] .scene-caption,
 html[data-theme="night"] .scene-caption a {
   color: #f8fbff;
+}
+
+/* A small, photographic travel passport layered over the home cover. */
+.passport-book {
+  width: min(420px, 30vw, calc((100svh - 245px) * .72));
+  position: absolute;
+  top: 43%;
+  right: clamp(24px, 5.5vw, 88px);
+  z-index: 5;
+  transform: translateY(-50%);
+  color: #f3eee4;
+}
+
+.passport-book-heading,
+.passport-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font: 9px/1.4 var(--font-mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, .7);
+}
+
+.passport-book-heading { margin-bottom: 10px; }
+
+.passport-stack {
+  padding: 0 8px 8px 0;
+  position: relative;
+  perspective: 1300px;
+}
+
+.passport-stack::before,
+.passport-stack::after {
+  content: "";
+  position: absolute;
+  inset: 4px 4px 4px 4px;
+  background: #e2dac9;
+  box-shadow: 0 12px 28px rgba(10, 12, 12, .2);
+}
+
+.passport-stack::after { inset: 8px 0 0 8px; background: #cfc7b6; }
+
+.passport-sheet {
+  aspect-ratio: .76;
+  padding: clamp(15px, 1.8vw, 24px);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #f1eadc;
+  color: #24302c;
+  box-shadow: 0 22px 55px rgba(7, 12, 12, .35), inset 5px 0 rgba(78, 64, 48, .12);
+  transform-origin: left center;
+  animation: passport-page-in 1050ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.passport-page-top {
+  min-height: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: #657169;
+  font: 9px/1.35 var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.passport-photo,
+.passport-cover-photo {
+  min-height: 0;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #627063;
+}
+
+.passport-photo-image { object-fit: cover; }
+
+.passport-page-copy,
+.passport-cover-copy { padding-top: 17px; }
+
+.passport-page-copy > span,
+.passport-cover-copy > span {
+  color: #57675f;
+  font: 9px/1.3 var(--font-mono);
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.passport-page-copy h2,
+.passport-cover-copy h2 {
+  margin-top: 5px;
+  font: 400 clamp(31px, 3.3vw, 46px)/.96 var(--font-serif);
+  letter-spacing: -.045em;
+}
+
+.passport-cover-copy h2 { font-size: clamp(38px, 3.8vw, 54px); }
+.passport-cover-copy h2 em { color: #556d62; }
+
+.passport-page-copy p,
+.passport-cover-copy p {
+  margin-top: 9px;
+  color: #58645d;
+  font: 11px/1.45 var(--font-sans);
+}
+
+.passport-controls {
+  margin-top: 9px;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.passport-controls > span { margin-inline: auto 8px; white-space: nowrap; }
+
+.passport-controls button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid #d8d0bd;
+  border-radius: 50%;
+  background: #f1eadc;
+  color: #24302c;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(7, 12, 10, .25);
+  transition: background 200ms ease, transform 200ms ease;
+}
+
+.passport-controls button:hover { background: #fff9ed; transform: translateY(-2px); }
+.passport-controls .passport-auto { margin-left: 7px; }
+
+@keyframes passport-page-in {
+  from { opacity: .7; transform: rotateY(-48deg) translateX(8px); }
+  to { opacity: 1; transform: rotateY(0) translateX(0); }
+}
+
+html[data-theme="night"] .passport-sheet {
+  background: #101a29;
+  color: #f2f8fb;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, .55), inset 5px 0 rgba(32, 228, 255, .16);
+}
+
+html[data-theme="night"] .passport-stack::before { background: #1a2738; }
+html[data-theme="night"] .passport-stack::after { background: #09101b; }
+html[data-theme="night"] .passport-controls button {
+  border-color: #2a4f63;
+  background: #101a29;
+  color: #f2f8fb;
+}
+html[data-theme="night"] .passport-controls button:hover { background: #1a3041; }
+html[data-theme="night"] .passport-page-top,
+html[data-theme="night"] .passport-page-copy > span,
+html[data-theme="night"] .passport-cover-copy > span,
+html[data-theme="night"] .passport-page-copy p,
+html[data-theme="night"] .passport-cover-copy p { color: #bbd2df; }
+html[data-theme="night"] .passport-cover-copy h2 em { color: #f2f8fb; }
+
+@media (max-width: 1050px) {
+  .passport-book {
+    width: min(390px, 44vw);
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: -12px clamp(24px, 5.5vw, 88px) 45px auto;
+    transform: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .passport-book { width: min(330px, calc(100% - 40px)); margin: 0 20px 36px auto; }
+  .passport-page-copy h2 { font-size: 34px; }
+  .passport-cover-copy h2 { font-size: 42px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .passport-sheet { animation: none; }
+}
+
+/* A true text-only mode: no site chrome, photos, player, or transitions. */
+body:has(.recruiter-page) .site-nav,
+body:has(.recruiter-page) .site-footer,
+body:has(.recruiter-page) .audio-dock,
+body:has(.recruiter-page) .route-curtain { display: none; }
+
+.recruiter-page,
+html[data-theme="night"] .recruiter-page {
+  min-height: 100svh;
+  background: #fff;
+  color: #202527;
+  font: 15px/1.6 var(--font-sans);
+}
+
+.recruiter-shell {
+  width: min(860px, 100%);
+  margin-inline: auto;
+  padding: 28px 28px 100px;
+}
+
+.recruiter-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid #cbd0d1;
+  padding-bottom: 14px;
+  color: #515d62;
+  font-size: 13px;
+}
+
+.recruiter-page a { color: #185878; text-decoration: underline; text-underline-offset: 3px; }
+.recruiter-page a:hover { color: #0d344b; }
+
+.recruiter-intro { padding-block: 40px 33px; }
+.recruiter-intro h1 { font: 700 clamp(38px, 5vw, 52px)/1.15 var(--font-sans); letter-spacing: -.04em; }
+.recruiter-intro > p { margin-top: 5px; }
+.recruiter-contact { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px 24px; }
+.recruiter-section { padding-block: 30px 6px; border-top: 1px solid #cbd0d1; }
+.recruiter-section h2 { margin-bottom: 18px; font: 700 23px/1.3 var(--font-sans); letter-spacing: -.02em; }
+.recruiter-entry { padding-block: 20px; border-top: 1px solid #e3e6e7; }
+.recruiter-entry:first-of-type { border-top: 0; padding-top: 0; }
+.recruiter-entry-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 12px 24px; }
+.recruiter-entry-heading h3 { font: 700 17px/1.4 var(--font-sans); }
+.recruiter-entry-heading span { color: #566166; font-size: 12px; text-align: right; }
+.recruiter-entry > p { margin-top: 9px; }
+.recruiter-entry ul { margin: 10px 0 0; padding-left: 21px; }
+.recruiter-entry li + li { margin-top: 5px; }
+.recruiter-entry .recruiter-tech { color: #566166; font-size: 12px; }
+.recruiter-entry-links { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 10px 20px; font-size: 12px; }
+.recruiter-last p + p { margin-top: 8px; }
+
+@media (max-width: 600px) {
+  .recruiter-shell { padding-inline: 20px; }
+  .recruiter-header { flex-direction: column; gap: 4px; }
+  .recruiter-entry-heading { flex-direction: column; gap: 3px; }
+  .recruiter-entry-heading span { text-align: left; }
 }

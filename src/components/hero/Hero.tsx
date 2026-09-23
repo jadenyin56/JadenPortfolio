@@ -1,5 +1,7 @@
-import { ArrowDownRight, ArrowUpRight, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { PlaneHeroScene } from "./PlaneHeroScene";
+import { PassportBook } from "./PassportBook";
+import { WorkDoorLink } from "@/components/motion/WorkDoorLink";
 import Link from "next/link";
 
 export function Hero() {
@@ -39,12 +41,8 @@ export function Hero() {
             </span>
           </p>
           <div className="hero-actions">
-            <Link className="button button-primary" href="/projects">
-              View work <ArrowDownRight size={16} />
-            </Link>
-            <Link className="button button-secondary" href="/contact">
-              Get in touch <ArrowUpRight size={15} />
-            </Link>
+            <WorkDoorLink />
+            <Link className="button button-secondary" href="/recruiter">Recruiter mode</Link>
           </div>
         </div>
         <div className="hero-meta hero-meta-enter">
@@ -62,6 +60,7 @@ export function Hero() {
       <div className="hero-visual">
         <PlaneHeroScene />
       </div>
+      <PassportBook />
       <div className="hero-margin-note" aria-hidden="true">
         Quiet systems / useful journeys
       </div>

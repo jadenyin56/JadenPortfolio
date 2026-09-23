@@ -14,6 +14,7 @@ const links = [
   { href: "/experience", label: "Experience", alt: "経歴", code: "02" },
   { href: "/travels", label: "Travels", alt: "旅", code: "03" },
   { href: "/contact", label: "Contact", alt: "連絡", code: "04" },
+  { href: "/recruiter", label: "Recruiter", alt: "概要", code: "05" },
 ];
 
 export function Navbar() {
