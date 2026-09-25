@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-24T01:23:00.000Z",
+  "title": "Design System: Jaden Yin Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "paper": { "role": "neutral", "displayName": "Warm Paper", "canonical": "#f3eee4", "tonalRamp": ["oklch(15% 0.02 85)", "oklch(27% 0.02 85)", "oklch(39% 0.02 85)", "oklch(51% 0.02 85)", "oklch(63% 0.02 85)", "oklch(75% 0.02 85)", "oklch(87% 0.02 85)", "oklch(95% 0.02 85)"] },
+      "paper-deep": { "role": "neutral", "displayName": "Deep Paper", "canonical": "#e8dfd0", "tonalRamp": ["oklch(15% 0.025 75)", "oklch(27% 0.025 75)", "oklch(39% 0.025 75)", "oklch(51% 0.025 75)", "oklch(63% 0.025 75)", "oklch(75% 0.025 75)", "oklch(87% 0.025 75)", "oklch(95% 0.025 75)"] },
+      "ink": { "role": "neutral", "displayName": "Soft Ink", "canonical": "#20231f", "tonalRamp": ["oklch(15% 0.015 125)", "oklch(27% 0.015 125)", "oklch(39% 0.015 125)", "oklch(51% 0.015 125)", "oklch(63% 0.015 125)", "oklch(75% 0.015 125)", "oklch(87% 0.015 125)", "oklch(95% 0.015 125)"] },
+      "muted-ink": { "role": "neutral", "displayName": "Weathered Ink", "canonical": "#62655e", "tonalRamp": ["oklch(15% 0.015 120)", "oklch(27% 0.015 120)", "oklch(39% 0.015 120)", "oklch(51% 0.015 120)", "oklch(63% 0.015 120)", "oklch(75% 0.015 120)", "oklch(87% 0.015 120)", "oklch(95% 0.015 120)"] },
+      "cedar": { "role": "primary", "displayName": "Cedar", "canonical": "#9a4f3f", "tonalRamp": ["oklch(15% 0.1 32)", "oklch(27% 0.1 32)", "oklch(39% 0.1 32)", "oklch(51% 0.1 32)", "oklch(63% 0.1 32)", "oklch(75% 0.1 32)", "oklch(87% 0.1 32)", "oklch(95% 0.1 32)"] },
+      "moss": { "role": "secondary", "displayName": "Field Moss", "canonical": "#495247", "tonalRamp": ["oklch(15% 0.035 140)", "oklch(27% 0.035 140)", "oklch(39% 0.035 140)", "oklch(51% 0.035 140)", "oklch(63% 0.035 140)", "oklch(75% 0.035 140)", "oklch(87% 0.035 140)", "oklch(95% 0.035 140)"] },
+      "aizome": { "role": "secondary", "displayName": "Aizome Blue", "canonical": "#245a73", "tonalRamp": ["oklch(15% 0.075 235)", "oklch(27% 0.075 235)", "oklch(39% 0.075 235)", "oklch(51% 0.075 235)", "oklch(63% 0.075 235)", "oklch(75% 0.075 235)", "oklch(87% 0.075 235)", "oklch(95% 0.075 235)"] },
+      "cabin-wall": { "role": "neutral", "displayName": "Molded Cabin Wall", "canonical": "#d8d1c4", "tonalRamp": ["oklch(15% 0.02 75)", "oklch(27% 0.02 75)", "oklch(39% 0.02 75)", "oklch(51% 0.02 75)", "oklch(63% 0.02 75)", "oklch(75% 0.02 75)", "oklch(87% 0.02 75)", "oklch(95% 0.02 75)"] },
+      "cabin-frame": { "role": "neutral", "displayName": "Cabin Frame Ivory", "canonical": "#eee9de", "tonalRamp": ["oklch(15% 0.018 85)", "oklch(27% 0.018 85)", "oklch(39% 0.018 85)", "oklch(51% 0.018 85)", "oklch(63% 0.018 85)", "oklch(75% 0.018 85)", "oklch(87% 0.018 85)", "oklch(95% 0.018 85)"] },
+      "night-sky": { "role": "neutral", "displayName": "Night Sky", "canonical": "#070b12", "tonalRamp": ["oklch(15% 0.03 255)", "oklch(27% 0.03 255)", "oklch(39% 0.03 255)", "oklch(51% 0.03 255)", "oklch(63% 0.03 255)", "oklch(75% 0.03 255)", "oklch(87% 0.03 255)", "oklch(95% 0.03 255)"] },
+      "night-ink": { "role": "neutral", "displayName": "Luminous Night Ink", "canonical": "#e8f7ff", "tonalRamp": ["oklch(15% 0.025 220)", "oklch(27% 0.025 220)", "oklch(39% 0.025 220)", "oklch(51% 0.025 220)", "oklch(63% 0.025 220)", "oklch(75% 0.025 220)", "oklch(87% 0.025 220)", "oklch(95% 0.025 220)"] },
+      "night-muted": { "role": "neutral", "displayName": "Night Mist", "canonical": "#8aa8b7", "tonalRamp": ["oklch(15% 0.04 225)", "oklch(27% 0.04 225)", "oklch(39% 0.04 225)", "oklch(51% 0.04 225)", "oklch(63% 0.04 225)", "oklch(75% 0.04 225)", "oklch(87% 0.04 225)", "oklch(95% 0.04 225)"] },
+      "night-magenta": { "role": "tertiary", "displayName": "City Magenta", "canonical": "#ff4fcf", "tonalRamp": ["oklch(15% 0.24 340)", "oklch(27% 0.24 340)", "oklch(39% 0.24 340)", "oklch(51% 0.24 340)", "oklch(63% 0.24 340)", "oklch(75% 0.24 340)", "oklch(87% 0.24 340)", "oklch(95% 0.24 340)"] },
+      "night-cyan": { "role": "primary", "displayName": "Electric Cyan", "canonical": "#20e4ff", "tonalRamp": ["oklch(15% 0.16 205)", "oklch(27% 0.16 205)", "oklch(39% 0.16 205)", "oklch(51% 0.16 205)", "oklch(63% 0.16 205)", "oklch(75% 0.16 205)", "oklch(87% 0.16 205)", "oklch(95% 0.16 205)"] }
+    },
+    "typographyMeta": {
+      "display-day": { "displayName": "Day Editorial Display", "purpose": "Primary page and section statements in the warm photographic world." },
+      "display-night": { "displayName": "Night Technical Display", "purpose": "Uppercase city-night headlines and high-impact statements." },
+      "body": { "displayName": "Body", "purpose": "Core readable prose and controls." },
+      "editorial-body": { "displayName": "Editorial Body", "purpose": "Compact supporting copy beside large image and display fields." },
+      "label": { "displayName": "Indexed Label", "purpose": "Indices, metadata, coordinates, status, and interaction instructions." }
+    },
+    "shadows": [
+      { "name": "quiet-overlay", "value": "0 12px 40px rgba(20, 18, 15, 0.18)", "purpose": "Persistent media and audio controls over the editorial canvas." },
+      { "name": "physical-recess", "value": "inset 0 -20px 38px rgba(89, 82, 71, 0.16), 0 24px 70px rgba(54, 49, 43, 0.2)", "purpose": "Molded day-mode objects whose thickness and cavity must read physically." },
+      { "name": "physical-recess-night", "value": "inset 0 -20px 38px rgba(37, 39, 39, 0.22), 0 24px 72px rgba(0, 0, 0, 0.46)", "purpose": "The same physical object under night lighting." },
+      { "name": "night-signal", "value": "0 0 22px rgba(32, 228, 255, 0.22)", "purpose": "Restrained glow on an active night-mode primary action." }
+    ],
+    "motion": [
+      { "name": "state-standard", "value": "250ms ease", "purpose": "Button lift and simple state feedback." },
+      { "name": "editorial-reveal", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Image reveals and slow photographic scale changes." },
+      { "name": "mechanical-swap", "value": "420ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Navigation label swaps and compact mechanical UI movement." },
+      { "name": "threshold-fade", "value": "720ms ease-in-out", "purpose": "Exit from an immersive threshold into destination content." }
+    ],
+    "breakpoints": [
+      { "name": "compact", "value": "480px" },
+      { "name": "mobile", "value": "760px" },
+      { "name": "editorial-collapse", "value": "1050px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Crisp paper-filled action used over photography; night mode swaps to cyan through the live theme tokens.",
+      "html": "<button class=\"ds-btn-primary\">VIEW PROJECT <span aria-hidden=\"true\">↗</span></button>",
+      "css": ".ds-btn-primary { min-height: 44px; padding: 10px 17px; display: inline-flex; align-items: center; justify-content: center; gap: 22px; border: 1px solid var(--ivory); border-radius: 0; background: var(--ivory); color: var(--ink); font: 12px/1.65 var(--font-sans); transition: transform 250ms ease; cursor: pointer; } .ds-btn-primary:hover { transform: translateY(-2px); } .ds-btn-primary:focus-visible { outline: 2px solid var(--cedar); outline-offset: 5px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "description": "A low-contrast bordered action that keeps photography visible.",
+      "html": "<button class=\"ds-btn-secondary\">READ NOTES</button>",
+      "css": ".ds-btn-secondary { min-height: 44px; padding: 10px 17px; border: 1px solid rgba(243, 238, 228, .48); border-radius: 0; background: rgba(32, 35, 31, .12); color: var(--ivory); font: 12px/1.65 var(--font-sans); transition: transform 250ms ease, background 250ms ease; cursor: pointer; } .ds-btn-secondary:hover { transform: translateY(-2px); background: rgba(243, 238, 228, .18); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--cedar); outline-offset: 5px; }"
+    },
+    {
+      "name": "Indexed Navigation Link",
+      "kind": "nav",
+      "description": "Quiet sans-serif navigation paired with a small mono index and thin active rule.",
+      "html": "<a class=\"ds-nav-link ds-is-active\" href=\"#\"><span>03</span><strong>Travels</strong></a>",
+      "css": ".ds-nav-link { position: relative; padding: 10px 0; display: inline-flex; align-items: center; gap: 6px; color: var(--ink); text-decoration: none; font: 12px/1.55 var(--font-sans); } .ds-nav-link > span { color: var(--cedar); font: 8px/1.4 var(--font-mono); } .ds-nav-link strong { font-weight: 400; } .ds-nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: 4px; border-top: 1px solid var(--cedar); transform: scaleX(0); transform-origin: right; transition: transform 300ms ease; } .ds-nav-link:hover::after, .ds-nav-link:focus-visible::after, .ds-nav-link.ds-is-active::after { transform: scaleX(1); transform-origin: left; } .ds-nav-link:focus-visible { outline: 2px solid var(--cedar); outline-offset: 5px; }"
+    },
+    {
+      "name": "Theme Toggle",
+      "kind": "button",
+      "description": "A compact bordered mode control with a circular icon well and explicit text state.",
+      "html": "<button class=\"ds-theme-toggle\"><span class=\"ds-theme-icon\" aria-hidden=\"true\">☼</span><span class=\"ds-theme-copy\"><small>MODE</small><strong>Day</strong></span></button>",
+      "css": ".ds-theme-toggle { min-height: 38px; padding: 4px 9px 4px 5px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(32, 35, 31, .2); border-radius: 0; background: rgba(243, 238, 228, .3); color: var(--ink); cursor: pointer; transition: border-color 220ms ease, background 220ms ease; } .ds-theme-toggle:hover { border-color: var(--cedar); } .ds-theme-toggle:focus-visible { outline: 2px solid var(--cedar); outline-offset: 5px; } .ds-theme-icon { width: 27px; aspect-ratio: 1; display: grid; place-items: center; border: 1px solid rgba(32, 35, 31, .2); border-radius: 50%; } .ds-theme-copy { display: grid; grid-template-columns: auto auto; gap: 6px; align-items: baseline; } .ds-theme-copy small { color: var(--muted); font: 7px/1.4 var(--font-mono); letter-spacing: .09em; } .ds-theme-copy strong { color: var(--cedar); font: 11px/1 var(--font-serif); }"
+    },
+    {
+      "name": "Travel Chapter Card",
+      "kind": "card",
+      "refersTo": "chapter-card",
+      "description": "A flat, full-color editorial chapter with mono metadata and one large serif category.",
+      "html": "<article class=\"ds-travel-card\"><div class=\"ds-travel-meta\"><span>ENTRY / 01</span><span>CITY / TBD</span></div><div class=\"ds-travel-placeholder\">PHOTOGRAPHS TO COME</div><div class=\"ds-travel-bottom\"><h3>Photographs</h3><span>AWAITING DEPARTURE</span></div></article>",
+      "css": ".ds-travel-card { width: min(720px, 82vw); min-height: 460px; padding: clamp(22px, 3vw, 42px); display: flex; flex-direction: column; justify-content: space-between; border-radius: 0; background: var(--moss); color: var(--ivory); } .ds-travel-meta, .ds-travel-bottom { display: flex; justify-content: space-between; gap: 20px; font: 9px/1.4 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; } .ds-travel-placeholder { align-self: center; color: rgba(243, 238, 228, .68); font: 9px/1.4 var(--font-mono); letter-spacing: .1em; } .ds-travel-bottom { align-items: end; } .ds-travel-bottom h3 { margin: 0; font: italic 400 clamp(36px, 5vw, 72px)/.95 var(--font-serif); letter-spacing: -.035em; text-transform: none; }"
+    },
+    {
+      "name": "Aircraft-Window Threshold",
+      "kind": "custom",
+      "description": "Static material study of the tactile travel threshold; the production component adds direct manipulation, WebGL depth, theme imagery, and accessible fallback paths.",
+      "html": "<section class=\"ds-cabin\"><button class=\"ds-cabin-skip\">SKIP ENTRANCE</button><p class=\"ds-cabin-copy\">Lift the shade<br>to enter the diary.</p><div class=\"ds-window-frame\"><div class=\"ds-window-view\"><div class=\"ds-window-shade\"><i></i></div></div></div></section>",
+      "css": ".ds-cabin { min-height: 520px; padding: 36px; position: relative; display: grid; place-items: center; overflow: hidden; background: #d8d1c4; color: #272923; } .ds-cabin-skip { position: absolute; top: 24px; right: 28px; min-height: 44px; padding: 10px 0 5px; border: 0; border-bottom: 1px solid currentColor; background: transparent; color: #373b35; font: 500 10px/1.4 var(--font-mono); letter-spacing: .11em; cursor: pointer; } .ds-cabin-skip:focus-visible { outline: 2px solid #9a4f3f; outline-offset: 5px; } .ds-cabin-copy { position: absolute; left: 5%; max-width: 11ch; margin: 0; font: 400 34px/.94 var(--font-serif); letter-spacing: -.035em; } .ds-window-frame { width: 245px; aspect-ratio: .72; padding: 24px; border-radius: 42%/24%; background: #eee9de; box-shadow: inset 0 -20px 38px rgba(89, 82, 71, .16), 0 24px 70px rgba(54, 49, 43, .2); } .ds-window-view { height: 100%; position: relative; overflow: hidden; border-radius: 41%/23%; background: #242a24; box-shadow: inset 0 18px 34px rgba(25, 27, 23, .38); } .ds-window-shade { position: absolute; inset: 0 0 9%; border-radius: 36% 36% 9% 9%/17% 17% 4% 4%; background: #e4ded2; box-shadow: 0 14px 20px rgba(38, 36, 31, .28); } .ds-window-shade i { width: 34%; height: 8px; position: absolute; left: 33%; bottom: -4px; border-radius: 999px; background: #bdb6aa; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Photographic Field Journal",
+    "overview": "The portfolio should feel collected rather than manufactured: real photographs, oversized editorial type, precise index labels, and the warm restraint of a well-kept travel journal. Expressive moments frame Jaden's work and travel records, but the content remains legible, honest, and recognizably present beneath them.\n\nDay mode uses paper, wood, earth, and natural-light associations. Night mode is a distinct city-after-dark treatment with monospaced display type, deep surfaces, and sparing cyan and magenta signals; it is not a literal color inversion. Physical interactions may become immersive, as in the travel entrance, when material, lighting, geometry, and motion all serve a clear passage into real content.",
+    "keyCharacteristics": [
+      "Real photography leads; graphic treatment supports it.",
+      "Editorial scale is paired with small, exact monospaced metadata.",
+      "Day feels warm and tactile; night feels urban, electric, and controlled.",
+      "Motion reveals hierarchy or models a physical action, then gets out of the way.",
+      "Expressive entrances preserve an immediate, accessible route to the content."
+    ],
+    "rules": [
+      { "name": "The Photograph Leads Rule", "body": "Use real project and travel imagery as the visual evidence; color fields and generated geometry may frame it but cannot impersonate it.", "section": "colors" },
+      { "name": "The Two Worlds Rule", "body": "Day and night are authored presentations with their own imagery and typographic character, not automated palette inversions.", "section": "colors" },
+      { "name": "The Rare Signal Rule", "body": "Cedar, cyan, and magenta mark hierarchy or state; they do not become broad decorative washes.", "section": "colors" },
+      { "name": "The Scale-and-Precision Rule", "body": "Pair one commanding editorial statement with restrained body copy and exact monospaced metadata; do not make every layer loud.", "section": "typography" },
+      { "name": "The Honest Depth Rule", "body": "Add elevation only when it explains layering, control state, or physical construction.", "section": "elevation" }
+    ],
+    "dos": [
+      "**Do** keep real photography visible as evidence and continuity across transitions.",
+      "**Do** preserve a clear typographic hierarchy: editorial display, readable sans-serif body, and precise mono metadata.",
+      "**Do** author day and night as related but distinct photographic worlds.",
+      "**Do** use physical geometry, lighting, and motion together when an interaction represents a real object.",
+      "**Do** provide keyboard, touch, reduced-motion, non-WebGL, and skip paths for immersive experiences.",
+      "**Do** test full-viewport objects at mobile widths and dynamic viewport heights."
+    ],
+    "donts": [
+      "**Don't** replace useful content with spectacle; the destination page remains the payoff.",
+      "**Don't** use abstract decoration when a real photograph or legible structural element carries the story better.",
+      "**Don't** default to rounded cards, glassmorphism, broad neon washes, or synthetic depth.",
+      "**Don't** present placeholder travel chapters as completed journeys.",
+      "**Don't** allow motion, media, or optional rendering capability to become the only path forward."
+    ]
+  }
+}

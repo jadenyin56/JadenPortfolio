@@ -72,6 +72,18 @@ export function AudioDock() {
     rig.master.gain.setTargetAtTime(muted ? 0.0001 : 0.025, rig.context.currentTime, 0.06);
   }, [muted]);
 
+  useEffect(() => {
+    const respondToWindow = (event: Event) => {
+      const rig = rigRef.current;
+      if (!rig) return;
+      const progress = Math.max(0, Math.min(1, Number((event as CustomEvent<number>).detail) || 0));
+      const travelGain = 0.025 + progress * 0.007;
+      rig.master.gain.setTargetAtTime(muted ? 0.0001 : travelGain, rig.context.currentTime, 0.12);
+    };
+    window.addEventListener("travel-window-progress", respondToWindow);
+    return () => window.removeEventListener("travel-window-progress", respondToWindow);
+  }, [muted]);
+
   function togglePlayback() {
     playUiTap();
     if (playing) stop();

@@ -38,7 +38,7 @@ export function Navbar() {
           aria-label="Jaden Yin, back to home"
         >
           <span className="brand-seal" aria-hidden="true">
-            JY
+            <span className="brand-logo" />
           </span>
           <span>{site.name}</span>
         </Link>

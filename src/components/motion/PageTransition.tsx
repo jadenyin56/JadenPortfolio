@@ -72,7 +72,17 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
         transition={{ duration: 0.68, ease: [0.76, 0, 0.24, 1] }}
       />
       <div className="route-frame">{children}</div>
-      {door ? <div className={`work-door-overlay is-${door.phase} is-${door.theme}`} aria-hidden="true"><div className="work-door-panel is-left"/><div className="work-door-panel is-right"/><span className="work-door-caption">01 / WORK</span></div> : null}
+      {door ? (
+        <div className={`work-door-overlay is-${door.phase} is-${door.theme}`} aria-hidden="true">
+          <div className="work-door-panel is-left" />
+          <div className="work-door-panel is-right" />
+          <span className="elevator-lintel" />
+          <span className="elevator-jamb is-left" />
+          <span className="elevator-jamb is-right" />
+          <span className="elevator-threshold" />
+          <span className="work-door-caption">01 / WORK</span>
+        </div>
+      ) : null}
     </WorkDoorContext.Provider>
   );
 }
