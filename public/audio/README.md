@@ -1,11 +1,5 @@
-# Local audio
+# Audio source
 
-Add properly licensed tracks here and update `src/data/music.ts` with their paths. The site currently uses quiet generated tone beds so the player works without shipping copyrighted media.
+The portfolio player now loads the configured Spotify playlist through Spotify's official embed API after the visitor interacts with it. No local songs, generated substitutes, or copyrighted audio files are shipped in this directory.
 
-Suggested filenames:
-
-- `ryokan-dusk.mp3`
-- `window-seat.mp3`
-- `after-rain.mp3`
-
-Music never starts automatically.
+The playlist URI and public link live in `src/data/music.ts`. Browser autoplay rules still apply, so playback begins only after a visitor action.

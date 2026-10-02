@@ -190,9 +190,9 @@ The editorial system is predominantly rectilinear: square cards, crisp image cro
 
 Navigation is a quiet index: restrained sans-serif labels, tiny monospaced numbers, an animated alternate serif label, and a thin cedar or cyan active rule. The header remains translucent enough to retain context, while mobile navigation becomes a full-width paper or night surface with clearly separated rows.
 
-### Aircraft-Window Threshold
+### Travels Threshold and Holding Page
 
-This is the reference implementation for a tactile immersive threshold, not a site-wide page template. It uses full-viewport molded geometry, a weighted direct-manipulation gesture, the first destination photograph as the exterior view, and a camera passage that resolves into the unchanged destination page. Keyboard, touch, reduced-motion, static non-WebGL, visible-focus, and explicit skip paths are part of the component definition. Motion stays restrained: damping and slight resistance communicate weight; the transition has one continuous destination.
+Travels opens through the existing tactile aircraft-window threshold, then resolves into a restrained photographic holding page while the archive is being assembled. The window is the authored transition, not a promise of finished travel content; the destination uses the shared editorial masthead, day/night train photography, and direct under-construction language.
 
 ## Do's and Don'ts
 

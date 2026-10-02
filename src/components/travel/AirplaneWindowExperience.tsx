@@ -175,7 +175,7 @@ export const AirplaneWindowExperience = forwardRef<HTMLDivElement, AirplaneWindo
       <div
         ref={forwardedRef}
         className={`travel-window-layer is-${phase}${fallback ? " is-fallback" : ""}`}
-        aria-label="Airplane window entrance to the travel diary"
+        aria-label="Airplane window entrance to Travels"
       >
         <div
           ref={sliderRef}
@@ -210,10 +210,10 @@ export const AirplaneWindowExperience = forwardRef<HTMLDivElement, AirplaneWindo
 
         <div className="travel-window-copy">
           <p id="travel-window-instructions">
-            {fallback ? "A quieter entrance is ready." : "Lift the shade to enter the diary."}
+            {fallback ? "A quieter entrance is ready." : "Lift the shade to see what's next!"}
           </p>
           {fallback ? (
-            <button type="button" onClick={onSkip}>Enter travel diary</button>
+            <button type="button" onClick={onSkip}>Continue to Travels</button>
           ) : (
             <span>Drag, touch, or use the arrow keys</span>
           )}

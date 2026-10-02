@@ -32,7 +32,7 @@ export const projects: Project[] = [
       },
     ],
     featured: true,
-    location: "Hack the North",
+    location: "Newhacks",
     github: "https://github.com/jadenyin56/Roamable",
     liveUrl: "https://devpost.com/software/roamable",
     status: "shipped",

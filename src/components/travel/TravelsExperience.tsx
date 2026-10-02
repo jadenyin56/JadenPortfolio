@@ -10,7 +10,7 @@ export function TravelsExperience({ children }: { children: React.ReactNode }) {
   const [phase, setPhase] = useState<TravelEntrancePhase>("window");
   const [reduceMotion, setReduceMotion] = useState(false);
   const windowLayerRef = useRef<HTMLDivElement>(null);
-  const diaryLayerRef = useRef<HTMLDivElement>(null);
+  const destinationLayerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -24,7 +24,7 @@ export function TravelsExperience({ children }: { children: React.ReactNode }) {
     if (phase === "diary") return;
     const previousOverflow = document.documentElement.style.overflow;
     const outsideLayers = Array.from(
-      document.querySelectorAll<HTMLElement>(".site-nav, .site-footer, .audio-dock"),
+      document.querySelectorAll<HTMLElement>(".site-nav, .site-footer, .audio-player"),
     );
     const previousInert = outsideLayers.map((element) => element.inert);
     document.documentElement.style.overflow = "hidden";
@@ -44,7 +44,7 @@ export function TravelsExperience({ children }: { children: React.ReactNode }) {
   const finishReveal = useCallback(() => {
     setPhase("diary");
     window.requestAnimationFrame(() => {
-      document.getElementById("travel-diary")?.focus({ preventScroll: true });
+      document.getElementById("travel-destination")?.focus({ preventScroll: true });
     });
   }, []);
   const skipEntrance = useCallback(() => setPhase("revealing"), []);
@@ -52,8 +52,8 @@ export function TravelsExperience({ children }: { children: React.ReactNode }) {
   return (
     <div className={`travels-experience is-${phase}`}>
       <div
-        ref={diaryLayerRef}
-        id="travel-diary"
+        ref={destinationLayerRef}
+        id="travel-destination"
         className="travel-diary-layer"
         tabIndex={-1}
         aria-hidden={phase !== "diary"}
@@ -77,7 +77,7 @@ export function TravelsExperience({ children }: { children: React.ReactNode }) {
         active={phase === "revealing"}
         reduceMotion={reduceMotion}
         windowLayer={windowLayerRef}
-        diaryLayer={diaryLayerRef}
+        diaryLayer={destinationLayerRef}
         onComplete={finishReveal}
       />
     </div>

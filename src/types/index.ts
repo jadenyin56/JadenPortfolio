@@ -31,6 +31,13 @@ export type Experience = {
   dates: string;
   code: string;
   description: string;
+  logo: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+    background: string;
+  };
   accomplishments: string[];
   technologies: string[];
   media: MediaItem[];

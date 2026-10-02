@@ -21,11 +21,6 @@ export function ContactSection() {
           <p>04 / Contact</p>
         </div>
         <div className="contact-main">
-          <p>
-            Have a role, a project,
-            <br />
-            or a place worth exploring?
-          </p>
           <h2>
             Where to
             <br />

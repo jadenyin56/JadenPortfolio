@@ -4,16 +4,18 @@ import { ThemePhoto } from "@/components/ui/ThemePhoto";
 export function PlaneHeroScene() {
   return (
     <figure className="plane-scene" data-future-three-scene>
-      <ThemePhoto
-        className="hero-photo"
-        daySrc="/images/editorial/hero-ryokan.jpg"
-        nightSrc="/images/editorial/night-tokyo-rain.jpg"
-        dayAlt="A traditional Japanese tatami room with shoji screens and a sunlit garden view"
-        nightAlt="A neon-lit Tokyo street glowing blue after dark"
-        sizes="100vw"
-        preload
-      />
-      <span className="hero-photo-grain" aria-hidden="true" />
+      <div className="hero-photo-stage">
+        <ThemePhoto
+          className="hero-photo"
+          daySrc="/images/editorial/hero-ryokan.jpg"
+          nightSrc="/images/editorial/night-tokyo-rain.jpg"
+          dayAlt="A traditional Japanese tatami room with shoji screens and a sunlit garden view"
+          nightAlt="A neon-lit Tokyo street glowing blue after dark"
+          sizes="100vw"
+          preload
+        />
+        <span className="hero-photo-grain" aria-hidden="true" />
+      </div>
       <figcaption className="scene-caption">
         <span className="theme-caption-day">Hamarikyu Gardens / Tokyo</span>
         <span className="theme-caption-night">Shinjuku / Tokyo · Night signal</span>

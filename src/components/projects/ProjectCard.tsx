@@ -2,7 +2,6 @@ import { ArrowUpRight, Github } from "lucide-react";
 import type { Project } from "@/types";
 import { MediaRail } from "@/components/ui/MediaRail";
 import { Tag } from "@/components/ui/Tag";
-import Link from "next/link";
 
 export function ProjectCard({
   project,
@@ -50,9 +49,6 @@ export function ProjectCard({
             ))}
           </div>
           <div className="project-links">
-            <Link href={`/projects/${project.slug}`}>
-              View project <ArrowUpRight size={13} />
-            </Link>
             {project.github ? (
               <a href={project.github} target="_blank" rel="noreferrer">
                 <Github size={14} />

@@ -5,24 +5,24 @@ primary_target: "src/app/travels/page.tsx"
 related_targets: []
 ---
 
-# Travels entrance
+# Travels threshold and holding page
 
-Mode: Experience. This is a scoped entrance state for `/travels`, not a redesign of the existing diary.
+Mode: Experience. This is the intentional temporary state for `/travels` while the photographic diary is still in development.
 
-Audience and job: portfolio visitors arrive at the travel archive and physically reveal the diary by lifting an airplane shade. Success means the gesture feels weighted, the passage through the window feels continuous, and the existing diary is immediately recognizable once revealed.
+Audience and job: portfolio visitors enter through the established airplane-window interaction, then immediately understand that the travel archive is forthcoming. Success means the threshold feels deliberate while the destination remains honest about its current state.
 
-Constraints: preserve the current Travel Diary content, layout, routes, light and night imagery, navigation behavior, and accessibility. Use the repository travel photographs. Do not use Spline, synthetic scenery, gyroscope, webcam, device orientation, neon, glassmorphism, or generic demo styling. WebGL is lazy-loaded and must have reduced-motion, keyboard, touch, and non-WebGL paths.
+Constraints: preserve the existing airplane-window interaction with its keyboard, touch, reduced-motion, fallback, and skip paths. Do not mount the Travel Diary or placeholder chapters. Use the repository travel photographs, preserve day/night behavior and navigation, and keep the destination minimal.
 
 ## Direction contract
 
-THESIS: The entrance is a physical threshold. A warm, full-viewport airplane wall and weighted shade replace the expected travel-page hero, while the existing diary waits intact behind it.
+THESIS: A tactile threshold can introduce the world without pretending the unfinished archive is complete.
 
-OWN-WORLD: Ivory molded cabin material, deeply beveled rounded window geometry, restrained charcoal instructions, soft directional daylight, honest shadows, and the existing day or night travel photograph. Controls borrow the cabin material instead of introducing app chrome.
+OWN-WORLD: The molded aircraft window, warm daylight rail photography, blue-black night rail photography, restrained serif type, and quiet monospaced status language.
 
-STORY: The visitor finds the shade mostly closed, drags it upward, feels resistance near the end of travel, and releases past the threshold. The shade settles, the camera moves through the opening, and the same photograph resolves into the existing diary hero.
+STORY: The visitor lifts or skips the aircraft shade, passes through the window, and lands on a concise under-construction statement rather than a misleading preview archive.
 
-FIRST VIEWPORT: A room-scale airplane wall fills the viewport. One oversized recessed window sits slightly right of center, with enough surrounding wall to communicate thickness and scale. The physical shade and handle dominate the interaction. One short instruction and a quiet skip action sit outside the window without competing with it.
+FIRST VIEWPORT: The aircraft window occupies the opening viewport. After the transition, one full photographic masthead carries the route index, coming-soon title, one sentence of context, and restrained attribution.
 
-FORM: Brief-pinned immersive object interaction, first and only structure because the user specified the physical mechanism precisely. Seed key: brief-pinned-airplane-window.
+FORM: Existing immersive threshold followed by the full-viewport editorial holding page. The Travel Diary remains dormant and outside the shipping route bundle.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
