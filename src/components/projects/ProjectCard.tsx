@@ -1,4 +1,4 @@
-import { ArrowUpRight, Github } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import type { Project } from "@/types";
 import { MediaRail } from "@/components/ui/MediaRail";
 import { Tag } from "@/components/ui/Tag";
@@ -50,16 +50,29 @@ export function ProjectCard({
           </div>
           <div className="project-links">
             {project.github ? (
-              <a href={project.github} target="_blank" rel="noreferrer">
-                <Github size={14} />
-                GitHub <ArrowUpRight size={13} />
+              <a
+                className="project-icon-link"
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`View ${project.title} source code on GitHub`}
+                title="View source code on GitHub"
+              >
+                <Github aria-hidden="true" size={19} strokeWidth={1.6} />
               </a>
             ) : (
-              <span>Case notes available on request</span>
+              <span className="project-link-note">Case notes available on request</span>
             )}
             {project.liveUrl ? (
-              <a href={project.liveUrl} target="_blank" rel="noreferrer">
-                Live project <ArrowUpRight size={13} />
+              <a
+                className="project-icon-link"
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Open ${project.title} live project`}
+                title="Open live project"
+              >
+                <ExternalLink aria-hidden="true" size={19} strokeWidth={1.6} />
               </a>
             ) : null}
           </div>
