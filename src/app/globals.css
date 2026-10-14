@@ -593,6 +593,7 @@ svg {
 .projects-section {
   background: var(--ivory);
   color: var(--ink);
+  padding-top: clamp(40px, 10vw, 100px);
 }
 
 .projects-list {

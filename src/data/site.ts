@@ -1,6 +1,6 @@
 export const site = {
   name: "Jaden Yin",
-  title: "Software Engineer & Computer Engineering Student",
+  title: "Computer Engineering Student at the University of Waterloo",
   location: "Toronto / Waterloo, Canada",
   email: "jadenyin56@gmail.com",
   github: "https://github.com/jadenyin56",

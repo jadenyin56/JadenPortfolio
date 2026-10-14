@@ -27,6 +27,12 @@ export default function RecruiterPage() {
             <a href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
         </section>
+        <section className="recruiter-section recruiter-last" aria-labelledby="recruiter-education">
+          <h2 id="recruiter-education">Education &amp; more</h2>
+          <div className="recruiter-section-content">
+            <p>Computer Engineering @ University of Waterloo</p>
+          </div>
+        </section>
         <section className="recruiter-section" aria-labelledby="recruiter-experience">
           <h2 id="recruiter-experience">Experience</h2>
           <div className="recruiter-section-content">
@@ -51,13 +57,6 @@ export default function RecruiterPage() {
                 {project.github || project.liveUrl ? <div className="recruiter-entry-links">{project.github ? <a href={project.github} target="_blank" rel="noreferrer">Source code</a> : null}{project.liveUrl ? <a href={project.liveUrl} target="_blank" rel="noreferrer">Live project</a> : null}</div> : null}
               </article>
             ))}
-          </div>
-        </section>
-        <section className="recruiter-section recruiter-last" aria-labelledby="recruiter-education">
-          <h2 id="recruiter-education">Education &amp; more</h2>
-          <div className="recruiter-section-content">
-            <p>Computer Engineering · University of Waterloo</p>
-            <p>Based in Toronto / Waterloo, Canada. Travel photographs and field notes are collected separately in the <Link href="/travels">travel archive</Link>.</p>
           </div>
         </section>
       </div>
