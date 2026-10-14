@@ -1,22 +1,18 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { experience } from "@/data/experience";
+import { ExperienceBrandMedia } from "./ExperienceBrandMedia";
 
 export function HomeExperiencePreview({ standalone = false }: { standalone?: boolean }) {
   return (
     <section className="home-experience">
       <div className="page-container home-experience-list">
-        {experience.map((role, index) => (
+        {experience.map((role) => (
           <article className="experience-feature" key={`${role.company}-${role.dates}`}>
-            <div className="home-experience-index" aria-hidden="true">
-              <span>{String(index + 1).padStart(2, "0")}</span>
-            </div>
-
             <div className="home-experience-copy">
               <div className="experience-feature-meta">
-                <span>{role.dates}</span>
-                <span>{role.location}</span>
+                <span className="experience-dates">{role.dates}</span>
+                <span className="experience-location">{role.location}</span>
               </div>
               <p className="experience-company">{role.company}</p>
               <h2>{role.title}</h2>
@@ -29,15 +25,7 @@ export function HomeExperiencePreview({ standalone = false }: { standalone?: boo
             </div>
 
             <figure className="experience-logo-panel" style={{ backgroundColor: role.logo.background }}>
-              <Image
-                className="experience-company-logo"
-                src={role.logo.src}
-                alt={role.logo.alt}
-                width={role.logo.width}
-                height={role.logo.height}
-                sizes="(max-width: 760px) calc(100vw - 86px), 34vw"
-                unoptimized
-              />
+              <ExperienceBrandMedia logo={role.logo} />
             </figure>
           </article>
         ))}

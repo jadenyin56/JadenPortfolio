@@ -11,6 +11,7 @@ export const experience: Experience[] = [
       "Built and shipped internal software and automation systems across Java, Spring Boot, React, and Salesforce, including event-driven workflows and secure role-based tools supporting more than 100 internal users.",
     logo: {
       src: "/images/experience/td-logo.svg",
+      animationSrc: "/images/experience/td-bank-animation.mp4",
       alt: "TD Bank logo",
       width: 400,
       height: 358,

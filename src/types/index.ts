@@ -33,6 +33,7 @@ export type Experience = {
   description: string;
   logo: {
     src: string;
+    animationSrc?: string;
     alt: string;
     width: number;
     height: number;

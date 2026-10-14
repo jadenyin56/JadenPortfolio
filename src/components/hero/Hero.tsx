@@ -68,7 +68,7 @@ export function Hero() {
               <strong>
               full-stack products, backend systems, cloud infrastructure, and AI
               </strong>
-              and collect places along the way.
+              {" "}and collect places along the way.
             </span>
           </p>
           <div className="hero-actions">
