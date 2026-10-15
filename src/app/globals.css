@@ -2685,23 +2685,23 @@ body:has(.work-door-overlay) { overflow: hidden; }
   color: var(--cedar-dark);
 }
 
-/* Experience: one decisive identity row per role */
+/* Experience: editorial detail paired with a three-frame image story */
 .home-experience {
   background: #292d2a;
   color: var(--ivory);
 }
 
 .home-experience-list {
-  padding-block: 0 clamp(64px, 8vw, 112px);
+  padding-block: 0 clamp(72px, 9vw, 128px);
 }
 
 .experience-feature {
   min-height: 0;
-  padding-block: clamp(36px, 4vw, 58px);
+  padding-block: clamp(58px, 7vw, 96px);
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(400px, .85fr);
-  gap: clamp(30px, 5vw, 78px);
-  align-items: center;
+  grid-template-columns: minmax(0, .92fr) minmax(460px, 1.08fr);
+  gap: clamp(42px, 6vw, 96px);
+  align-items: start;
 }
 
 .experience-feature + .experience-feature {
@@ -2712,47 +2712,144 @@ body:has(.work-door-overlay) { overflow: hidden; }
   min-width: 0;
 }
 
-.experience-feature-meta {
-  margin-bottom: clamp(26px, 4vw, 48px);
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
+.experience-entry-header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+}
+
+.experience-brand-mark {
+  width: 62px;
+  height: 62px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(243, 238, 228, .32);
+  border-radius: 8px;
+}
+
+.experience-brand-mark img {
+  width: 74%;
+  height: 74%;
+  object-fit: contain;
+}
+
+.experience-brand-mark-waterloo {
+  width: 82px;
+  background: #f4f0e8;
+}
+
+.experience-brand-mark-waterloo img {
+  width: 92%;
+  height: auto;
+}
+
+.experience-entry-identity {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.experience-entry-identity strong {
+  color: var(--ivory);
+  font: 500 clamp(18px, 1.55vw, 23px)/1.1 var(--font-sans);
+  letter-spacing: -.025em;
+}
+
+.experience-entry-identity small,
+.experience-feature-meta small {
   color: #aeb8b0;
-  font: 9px var(--font-mono);
-  letter-spacing: .11em;
+  font: 11px/1.3 var(--font-mono);
+  letter-spacing: .06em;
   text-transform: uppercase;
 }
 
-.experience-dates {
-  color: var(--ivory);
-  font-size: clamp(13px, 1.15vw, 16px);
-  letter-spacing: .04em;
+.experience-feature-meta {
+  min-width: max-content;
+  display: grid;
+  gap: 5px;
+  justify-items: end;
+  text-align: right;
 }
 
-.experience-company {
-  margin: 0;
+.experience-feature-meta strong {
   color: var(--ivory);
-  font: 400 clamp(72px, 7vw, 96px)/.82 var(--font-serif);
-  letter-spacing: -.04em;
-  text-transform: uppercase;
-  text-wrap: balance;
+  font: 500 clamp(13px, 1.05vw, 15px)/1.2 var(--font-mono);
+  letter-spacing: .01em;
 }
 
-.home-experience-copy h2 {
-  max-width: 760px;
-  margin: clamp(22px, 3vw, 38px) 0 0;
-  color: #aebbb2;
-  font: 400 clamp(34px, 3.5vw, 52px)/.96 var(--font-serif);
-  letter-spacing: -.04em;
+.home-experience-copy .experience-entry-title {
+  max-width: 720px;
+  margin: clamp(42px, 5vw, 68px) 0 0;
+  color: var(--ivory);
+  font: 400 clamp(44px, 4.6vw, 68px)/.94 var(--font-serif);
+  letter-spacing: -.045em;
   text-wrap: balance;
 }
 
 .home-role-summary {
-  max-width: 48ch;
-  margin-top: clamp(28px, 4vw, 48px);
-  color: rgba(243, 238, 228, .76);
-  font-size: clamp(14px, 1.15vw, 17px);
-  line-height: 1.65;
+  max-width: 56ch;
+  margin-top: clamp(24px, 3vw, 36px);
+  color: rgba(243, 238, 228, .79);
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 1.62;
+}
+
+.experience-tool-group {
+  margin-top: clamp(28px, 3.5vw, 42px);
+}
+
+.experience-tool-group > p {
+  margin: 0 0 13px;
+  color: #aeb8b0;
+  font: 10px/1 var(--font-mono);
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.experience-tool-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.experience-tool-list > span {
+  padding: 8px 13px 7px;
+  border: 1px solid rgba(243, 238, 228, .28);
+  border-radius: 999px;
+  color: rgba(243, 238, 228, .8);
+  font: 11px/1 var(--font-mono);
+}
+
+.education-facts {
+  margin: clamp(30px, 4vw, 46px) 0 0;
+  border-top: 1px solid rgba(243, 238, 228, .22);
+}
+
+.education-facts > div {
+  padding: 16px 0;
+  display: grid;
+  grid-template-columns: minmax(90px, .35fr) 1fr;
+  gap: 20px;
+}
+
+.education-facts > div:first-child {
+  border-bottom: 1px solid rgba(243, 238, 228, .14);
+}
+
+.education-facts dt {
+  color: #aeb8b0;
+  font: 10px/1.5 var(--font-mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.education-facts dd {
+  margin: 0;
+  color: rgba(243, 238, 228, .88);
+  font-size: 15px;
+  line-height: 1.45;
 }
 
 .archive-link-light {
@@ -2760,14 +2857,72 @@ body:has(.work-door-overlay) { overflow: hidden; }
   color: #d7c2b7;
 }
 
-.experience-logo-panel {
-  width: 100%;
-  aspect-ratio: 16 / 10;
+.experience-gallery {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.experience-gallery figure {
   margin: 0;
   overflow: hidden;
+  border: 2px solid rgba(243, 238, 228, .56);
+  border-radius: 8px;
+}
+
+.experience-gallery-primary {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 7;
   display: grid;
   place-items: center;
-  border: 3px solid rgba(243, 238, 228, .68);
+}
+
+.experience-gallery-image,
+.experience-gallery-placeholder {
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+
+.experience-gallery-education > :not(.experience-gallery-primary) {
+  aspect-ratio: 3 / 4;
+}
+
+.experience-gallery-image img {
+  object-fit: cover;
+}
+
+.experience-gallery-placeholder {
+  padding: clamp(18px, 2.5vw, 32px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 7px;
+  background: #343a36;
+  color: rgba(243, 238, 228, .84);
+}
+
+.experience-gallery-placeholder span {
+  font: 500 12px/1.2 var(--font-mono);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.experience-gallery-placeholder figcaption {
+  max-width: 28ch;
+  color: rgba(243, 238, 228, .56);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.experience-waterloo-logo {
+  padding: clamp(36px, 5vw, 72px);
+  background: #f4f0e8;
+}
+
+.experience-waterloo-logo img {
+  width: min(78%, 460px);
+  height: auto;
 }
 
 .experience-company-logo {
@@ -2781,6 +2936,11 @@ body:has(.work-door-overlay) { overflow: hidden; }
   display: block;
   object-fit: contain;
   background: #fff;
+}
+
+.experience-gallery-td .experience-company-animation {
+  object-fit: cover;
+  object-position: 50% calc(50% - 20px);
 }
 
 /* Experience is concise, cool, and typographic rather than resume-like */
@@ -2851,13 +3011,11 @@ body:has(.work-door-overlay) { overflow: hidden; }
   .page-masthead-description { grid-column: 2; }
   .experience-feature {
     min-height: 0;
-    padding-block: 42px;
+    padding-block: 58px;
     grid-template-columns: 1fr;
+    gap: 48px;
   }
-  .experience-logo-panel {
-    grid-column: 1;
-    aspect-ratio: 16 / 7;
-  }
+  .experience-gallery { max-width: 860px; }
   .experience-body-grid { grid-template-columns: 1fr; }
   .experience-body-grid .experience-media-rail { height: 560px; }
 }
@@ -2938,15 +3096,30 @@ body:has(.work-door-overlay) { overflow: hidden; }
   .media-rail-auto::before { display: none; }
   .home-experience-list { padding-block: 0 64px; }
   .experience-feature {
-    padding-block: 32px;
+    padding-block: 46px;
     grid-template-columns: 1fr;
-    gap: 34px 14px;
+    gap: 38px;
   }
-  .experience-company { font-size: clamp(64px, 14vw, 88px); }
-  .home-experience-copy h2 { font-size: clamp(34px, 8.5vw, 48px); }
-  .experience-logo-panel {
-    grid-column: 1;
-    aspect-ratio: 16 / 9;
+  .experience-entry-header {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .experience-feature-meta {
+    grid-column: 2;
+    justify-items: start;
+    text-align: left;
+  }
+  .home-experience-copy .experience-entry-title {
+    margin-top: 38px;
+    font-size: clamp(38px, 9vw, 56px);
+  }
+  .experience-gallery {
+    gap: 8px;
+  }
+  .experience-gallery-primary {
+    aspect-ratio: 16 / 8;
+  }
+  .experience-gallery-education > :not(.experience-gallery-primary) {
+    aspect-ratio: 4 / 5;
   }
   .experience-body-grid .experience-media-rail { height: 430px; }
 }
@@ -2954,11 +3127,20 @@ body:has(.work-door-overlay) { overflow: hidden; }
 @media (max-width: 480px) {
   .page-masthead-grid { grid-template-columns: 42px 1fr; }
   .page-masthead-title h1 { font-size: clamp(56px, 18vw, 78px); }
-  .experience-feature { padding-block: 26px; grid-template-columns: 1fr; gap: 24px; }
-  .experience-feature-meta { align-items: flex-start; flex-direction: column; gap: 8px; }
-  .experience-company { font-size: clamp(58px, 18vw, 84px); }
-  .home-experience-copy h2 { font-size: clamp(32px, 9vw, 44px); }
-  .experience-logo-panel { grid-column: 1; aspect-ratio: 16 / 8; }
+  .experience-feature { padding-block: 38px; grid-template-columns: 1fr; gap: 32px; }
+  .experience-brand-mark { width: 54px; height: 54px; }
+  .experience-brand-mark-waterloo { width: 68px; }
+  .experience-entry-header { gap: 12px; }
+  .experience-entry-identity strong { font-size: 17px; }
+  .experience-entry-identity small,
+  .experience-feature-meta small { font-size: 9px; }
+  .experience-feature-meta strong { font-size: 12px; }
+  .home-experience-copy .experience-entry-title { font-size: clamp(34px, 10.5vw, 46px); }
+  .experience-tool-list > span { padding: 7px 10px 6px; font-size: 10px; }
+  .experience-gallery-placeholder { padding: 14px; }
+  .experience-gallery-placeholder span { font-size: 10px; }
+  .experience-gallery-placeholder figcaption { font-size: 10px; }
+  .experience-waterloo-logo { padding: 28px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3197,19 +3379,44 @@ html[data-theme="night"] .home-experience {
   color: #e8f7ff;
 }
 
-html[data-theme="night"] .experience-feature-meta { color: var(--aizome); }
-
-html[data-theme="night"] .experience-dates { color: #f8fbff; }
-
-html[data-theme="night"] .experience-logo-panel {
-  border-color: rgba(32, 228, 255, .52);
+html[data-theme="night"] .experience-entry-identity strong,
+html[data-theme="night"] .experience-feature-meta strong,
+html[data-theme="night"] .education-facts dd {
+  color: #f8fbff;
 }
 
-html[data-theme="night"] .experience-company {
-  color: #f8fbff;
-  font-family: var(--font-mono);
-  font-weight: 500;
-  letter-spacing: -.04em;
+html[data-theme="night"] .experience-entry-identity small,
+html[data-theme="night"] .experience-feature-meta small,
+html[data-theme="night"] .experience-tool-group > p,
+html[data-theme="night"] .education-facts dt {
+  color: #88abb9;
+}
+
+html[data-theme="night"] .experience-gallery figure,
+html[data-theme="night"] .experience-brand-mark,
+html[data-theme="night"] .experience-tool-list > span {
+  border-color: rgba(32, 228, 255, .34);
+}
+
+html[data-theme="night"] .experience-tool-list > span {
+  color: rgba(232, 247, 255, .82);
+}
+
+html[data-theme="night"] .education-facts {
+  border-top-color: rgba(32, 228, 255, .24);
+}
+
+html[data-theme="night"] .education-facts > div:first-child {
+  border-bottom-color: rgba(32, 228, 255, .16);
+}
+
+html[data-theme="night"] .experience-gallery-placeholder {
+  background: #0d1b27;
+  color: #dff9ff;
+}
+
+html[data-theme="night"] .experience-gallery-placeholder figcaption {
+  color: #88abb9;
 }
 
 html[data-theme="night"] .travels-section { background: #091925; }

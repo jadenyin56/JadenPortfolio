@@ -27,14 +27,14 @@ export const experience: Experience[] = [
       {
         kind: "photo-placeholder",
         alt: "Placeholder for a photograph from the TD Bank internship",
-        label: "Workplace / 01",
-        caption: "Team and workplace photography",
+        label: "TD photo 2",
+        caption: "Add a team or workplace photograph",
       },
       {
         kind: "photo-placeholder",
         alt: "Placeholder for a second photograph from the TD Bank internship",
-        label: "Field note / 02",
-        caption: "A moment from the internship",
+        label: "TD photo 3",
+        caption: "Add another moment from the internship",
       },
     ],
   },
