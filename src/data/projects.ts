@@ -209,36 +209,4 @@ export const projects: Project[] = [
     github: "https://github.com/jadenyin56/Java-Joyride",
     status: "shipped",
   },
-  {
-    slug: "java-minigames",
-    title: "Java Minigames",
-    shortTitle: "Java Minigames",
-    description: "A collection of small Java games built to explore object-oriented design, input handling, and reusable game systems.",
-    category: "Java game collection",
-    year: "2025",
-    route: "PLAY / REPEAT",
-    technologies: ["Java", "OOP", "Game logic", "Input systems"],
-    media: [
-      {
-        kind: "photo-placeholder",
-        alt: "Placeholder for a Java Minigames menu screenshot",
-        label: "Collection / 01",
-        caption: "Minigame selection coming soon",
-      },
-      {
-        kind: "photo-placeholder",
-        alt: "Placeholder for Java Minigames gameplay",
-        label: "Gameplay / 02",
-        caption: "Gameplay capture coming soon",
-      },
-      {
-        kind: "video-placeholder",
-        alt: "Placeholder for a Java Minigames demonstration",
-        label: "Demo / 03",
-        caption: "Gameplay demonstration coming soon",
-      },
-    ],
-    location: "Waterloo",
-    status: "shipped",
-  },
 ];

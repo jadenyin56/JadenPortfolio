@@ -10,8 +10,8 @@ export const experience: Experience[] = [
     description:
       "Built and shipped internal software and automation systems across Java, Spring Boot, React, and Salesforce, including event-driven workflows and secure role-based tools supporting more than 100 internal users.",
     logo: {
-      src: "/images/experience/td-logo.svg",
-      animationSrc: "/images/experience/td-bank-animation.mp4",
+      src: "/images/experience/TD Bank/td-logo.svg",
+      animationSrc: "/images/experience/TD Bank/td-bank-animation.mp4",
       alt: "TD Bank logo",
       width: 400,
       height: 358,
@@ -25,16 +25,18 @@ export const experience: Experience[] = [
     technologies: ["Java", "Spring Boot", "React", "SQL Server", "REST APIs", "Salesforce", "Apex", "Jest"],
     media: [
       {
-        kind: "photo-placeholder",
-        alt: "Placeholder for a photograph from the TD Bank internship",
-        label: "TD photo 2",
-        caption: "Add a team or workplace photograph",
+        kind: "image",
+        src: "/images/experience/TD Bank/IMG_8494.JPG",
+        alt: "Jaden and colleagues at a TD Bank recognition event",
+        label: "TD recognition event",
+        caption: "Recognition event with colleagues at TD Bank",
       },
       {
-        kind: "photo-placeholder",
-        alt: "Placeholder for a second photograph from the TD Bank internship",
-        label: "TD photo 3",
-        caption: "Add another moment from the internship",
+        kind: "image",
+        src: "/images/experience/TD Bank/IMG_8498.JPG",
+        alt: "Jaden and fellow TD Bank interns standing in front of a TD backdrop",
+        label: "TD intern group",
+        caption: "TD Bank interns at a company event",
       },
     ],
   },
