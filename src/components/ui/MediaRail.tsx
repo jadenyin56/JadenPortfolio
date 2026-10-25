@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, ImagePlus, Play } from "lucide-react";
+import { ImagePlus, Play } from "lucide-react";
 import { useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import type { MediaItem } from "@/types";
@@ -27,7 +27,7 @@ export function MediaRail({
   const viewportRef = useRef<HTMLDivElement>(null);
   const railRef = useRef<HTMLElement>(null);
   const frameRef = useRef<number | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const activeIndexRef = useRef(0);
   const [paused, setPaused] = useState(false);
   const [inView, setInView] = useState(false);
   const reduceMotion = useReducedMotion();
@@ -43,15 +43,14 @@ export function MediaRail({
   useEffect(() => {
     if (!autoPlay || !inView || reduceMotion || paused || items.length < 2 || window.matchMedia("(max-width: 760px)").matches) return;
     const timer = window.setInterval(() => {
-      setActiveIndex((current) => {
-        const next = direction === 1
-          ? (current + 1) % items.length
-          : (current - 1 + items.length) % items.length;
-        const viewport = viewportRef.current;
-        const target = viewport?.children.item(next) as HTMLElement | null;
-        if (viewport && target) viewport.scrollTo({ left: target.offsetLeft, top: 0, behavior: "smooth" });
-        return next;
-      });
+      const current = activeIndexRef.current;
+      const next = direction === 1
+        ? (current + 1) % items.length
+        : (current - 1 + items.length) % items.length;
+      const viewport = viewportRef.current;
+      const target = viewport?.children.item(next) as HTMLElement | null;
+      if (viewport && target) viewport.scrollTo({ left: target.offsetLeft, top: 0, behavior: "smooth" });
+      activeIndexRef.current = next;
     }, 5200);
     return () => window.clearInterval(timer);
   }, [autoPlay, direction, inView, items.length, paused, reduceMotion]);
@@ -59,14 +58,6 @@ export function MediaRail({
   useEffect(() => () => {
     if (frameRef.current !== null) window.cancelAnimationFrame(frameRef.current);
   }, []);
-
-  function moveTo(nextIndex: number) {
-    const boundedIndex = Math.max(0, Math.min(nextIndex, items.length - 1));
-    const viewport = viewportRef.current;
-    const target = viewport?.children.item(boundedIndex) as HTMLElement | null;
-    if (viewport && target) viewport.scrollTo({ left: target.offsetLeft, top: 0, behavior: reduceMotion ? "auto" : "smooth" });
-    setActiveIndex(boundedIndex);
-  }
 
   function syncActiveSlide() {
     if (frameRef.current !== null) return;
@@ -81,14 +72,14 @@ export function MediaRail({
           );
           return currentDistance < closestDistance ? index : closest;
         }, 0);
-        setActiveIndex(closestIndex);
+        activeIndexRef.current = closestIndex;
       }
       frameRef.current = null;
     });
   }
 
   return (
-    <section ref={railRef} className={cn("media-rail", autoPlay && "media-rail-auto", className)} aria-label={title} onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} onFocusCapture={() => setPaused(true)} onBlurCapture={() => setPaused(false)}>
+    <section ref={railRef} className={cn("media-rail", autoPlay && items.length > 1 && "media-rail-auto", items.length === 1 && "media-rail-single", className)} aria-label={title} onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} onFocusCapture={() => setPaused(true)} onBlurCapture={() => setPaused(false)}>
       <div
         ref={viewportRef}
         className="media-viewport"
@@ -130,27 +121,6 @@ export function MediaRail({
         ))}
       </div>
       {eyebrow ? <span className="media-eyebrow">{eyebrow}</span> : null}
-      <div className="media-controls">
-        <span aria-live="polite">
-          {String(activeIndex + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}
-        </span>
-        <button
-          type="button"
-          onClick={() => moveTo(activeIndex - 1)}
-          disabled={activeIndex === 0}
-          aria-label={`Previous ${title.toLowerCase()}`}
-        >
-          <ArrowLeft size={16} />
-        </button>
-        <button
-          type="button"
-          onClick={() => moveTo(activeIndex + 1)}
-          disabled={activeIndex === items.length - 1}
-          aria-label={`Next ${title.toLowerCase()}`}
-        >
-          <ArrowRight size={16} />
-        </button>
-      </div>
     </section>
   );
 }
